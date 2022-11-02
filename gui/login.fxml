@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #2F4F4F; -fx-background-repeat: strech;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ScenneController">
+   <children>
+      <Label layoutX="381.0" layoutY="252.0" text="Logar/Cadastrar-se" textFill="WHITE">
+         <font>
+            <Font name="Verdana" size="27.0" />
+         </font>
+      </Label>
+      <TextField layoutX="337.0" layoutY="341.0" prefHeight="25.0" prefWidth="350.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="337.0" layoutY="430.0" prefHeight="25.0" prefWidth="350.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button layoutX="337.0" layoutY="503.0" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="39.0" prefWidth="160.0" style="-fx-background-color: #FFFF00;" text="Login">
+         <font>
+            <Font name="Verdana Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="527.0" layoutY="503.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="160.0" style="-fx-background-color: #000000;" text="Cadastrar-se" textFill="WHITE">
+         <font>
+            <Font name="Verdana" size="16.0" />
+         </font>
+      </Button>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1024.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Usuário">
+            <items>
+              <MenuItem disable="true" mnemonicParsing="false" text="Perfil" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="Alterar Dados" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="Registro Locações" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Menu">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Menu inicial" />
+                  <MenuItem fx:id="exit" mnemonicParsing="false"  text="Sair" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

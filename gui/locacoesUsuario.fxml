@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="720.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+   <children>
+      <TableView layoutY="25.0" prefHeight="497.0" prefWidth="720.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <columns>
+            <TableColumn prefWidth="144.0" text="Unidade" />
+            <TableColumn minWidth="0.0" prefWidth="144.0" text="Modelo" />
+            <TableColumn prefWidth="144.0" text="Valor" />
+            <TableColumn prefWidth="144.0" text="Data locação" />
+            <TableColumn prefWidth="144.0" text="Data Devolução" />
+         </columns>
+      </TableView>
+      <MenuBar layoutX="42.0" layoutY="22.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Usuário">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Perfil" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="Locações" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Administrador">
+               <items>
+                  <MenuItem disable="true" mnemonicParsing="false" text="Ver usuários" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="Ver Unidades" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="Ver veiculos" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Sair">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Sair" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Button layoutX="548.0" layoutY="551.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" text="Sair" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="476.0" layoutY="541.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" text="Voltar" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="140.0">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
