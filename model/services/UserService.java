@@ -14,6 +14,11 @@ public class UserService {
 		return dao.findAll();
 	}
 	
+	
+	public User findByEmail(String email) {
+		return dao.findByEmail(email);
+	}
+	
 	public void saveOrUpdate(User obj) {
 		if (obj.getId() == null) {
 			dao.insert(obj);

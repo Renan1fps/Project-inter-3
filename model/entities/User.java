@@ -9,17 +9,19 @@ public class User implements Serializable {
 	private Integer id;
 	private String name;
 	private String email;
+	private String passowrd;
 	private String cpf;
 
 	
 	public User() {
 	}
 
-	public User(Integer id, String name, String email, String cpf) {
+	public User(Integer id, String name, String email, String cpf, String password) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.cpf = cpf;
+		this.passowrd = password;
 		
 	}
 
@@ -50,6 +52,18 @@ public class User implements Serializable {
 	public String getCpf() {
 		return this.cpf;
 	}
+	
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
+	public void setPassword(String password) {
+		this.passowrd = password;
+	}
+	
+	public String getPassowrd() {
+		return this.passowrd;
+	}
 
 
 	@Override
@@ -79,6 +93,6 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Seller [id=" + id + ", name=" + name + ", email=" + email;
+		return "User id=" + id + ", name=" + name + ", email=" + email;
 	}
 }
