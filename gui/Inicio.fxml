@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="294.0" layoutY="195.0" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="688.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -43,7 +42,7 @@
                   <Font name="Arial" size="36.0" />
                </font>
             </Label>
-            <Button layoutX="491.0" layoutY="312.0" mnemonicParsing="false" style="-fx-background-color: BLACK; -fx-background-radius: 5;" text="Saiba mais" textFill="WHITE">
+            <Button layoutX="491.0" layoutY="312.0" mnemonicParsing="false" style="-fx-background-color: BLACK; -fx-background-radius: 5;" text="Navegar" textFill="WHITE">
                <padding>
                   <Insets bottom="5.0" left="40.0" right="40.0" top="5.0" />
                </padding>
