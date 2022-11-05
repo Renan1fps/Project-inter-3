@@ -16,7 +16,7 @@ public class ScenneController {
 	private Parent root;
 
 	public void switchToScene1(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("primary.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/gui/primary.fxml"));
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
@@ -24,7 +24,7 @@ public class ScenneController {
 	}
 
 	public void switchToScene2(ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("secondary.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/gui/secondary.fxml"));
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
@@ -32,7 +32,7 @@ public class ScenneController {
 	}
 
 	public void switchToLogin(ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/gui/gui_ini/login.fxml"));
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
