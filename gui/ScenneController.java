@@ -32,7 +32,7 @@ public class ScenneController {
 	}
 
 	public void switchToLogin(ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/gui/gui_ini/login.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/gui_ini/login.fxml"));
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
