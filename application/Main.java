@@ -1,8 +1,5 @@
 package application;
 
-import java.sql.Connection;
-
-import database.Provider;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -18,8 +15,6 @@ public class Main extends Application {
 			Scene scene = new Scene(parent);
 			stage.setScene(scene);
 			stage.show();
-			Connection con = Provider.getConnection();
-			con.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

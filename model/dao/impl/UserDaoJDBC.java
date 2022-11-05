@@ -110,9 +110,10 @@ public class UserDaoJDBC implements UserDao {
 
 	private User instantiateUser(ResultSet rs) throws SQLException {
 		User obj = new User();
-		obj.setId(rs.getInt("id"));
+		obj.setId(rs.getInt("id_user"));
 		obj.setName(rs.getString("name"));
 		obj.setEmail(rs.getString("email"));
+		obj.setCpf(rs.getString("cpf"));
 		return obj;
 	}
 
@@ -132,6 +133,28 @@ public class UserDaoJDBC implements UserDao {
 				list.add(obj);
 			}
 			return list;
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		} finally {
+			Provider.closeStatement(st);
+			Provider.closeResultSet(rs);
+		}
+	}
+	
+	@Override
+	public User findByEmail(String email) {
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			st = conn.prepareStatement("SELECT * FROM tb_user WHERE email = ?");
+
+			st.setString(1, email);
+			rs = st.executeQuery();
+			if (rs.next()) {
+				User obj = instantiateUser(rs);
+				return obj;
+			}
+			return null;
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
 		} finally {
