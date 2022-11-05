@@ -2,56 +2,61 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #2F4F4F; -fx-background-repeat: strech;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ScenneController">
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #f2ecff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ScenneController">
    <children>
-      <Label layoutX="381.0" layoutY="252.0" text="Logar/Cadastrar-se" textFill="WHITE">
-         <font>
-            <Font name="Verdana" size="27.0" />
-         </font>
-      </Label>
-      <TextField layoutX="337.0" layoutY="341.0" prefHeight="25.0" prefWidth="350.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
-      <TextField layoutX="337.0" layoutY="430.0" prefHeight="25.0" prefWidth="350.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
-      <Button layoutX="337.0" layoutY="503.0" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="39.0" prefWidth="160.0" style="-fx-background-color: #FFFF00;" text="Login">
-         <font>
-            <Font name="Verdana Bold" size="16.0" />
-         </font>
-      </Button>
-      <Button layoutX="527.0" layoutY="503.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="160.0" style="-fx-background-color: #000000;" text="Cadastrar-se" textFill="WHITE">
-         <font>
-            <Font name="Verdana" size="16.0" />
-         </font>
-      </Button>
-      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1024.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="Usuário">
-            <items>
-              <MenuItem disable="true" mnemonicParsing="false" text="Perfil" />
-                  <MenuItem disable="true" mnemonicParsing="false" text="Alterar Dados" />
-                  <MenuItem disable="true" mnemonicParsing="false" text="Registro Locações" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Menu">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Menu inicial" />
-                  <MenuItem fx:id="exit" mnemonicParsing="false" text="Sair" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
+      <Pane layoutX="348.0" layoutY="221.0" prefHeight="407.0" prefWidth="329.0" style="-fx-background-color: WHITE;">
+         <children>
+            <TextField layoutX="44.0" layoutY="156.0" prefHeight="26.0" prefWidth="242.0" promptText="Seu e-mail cadastrado">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="44.0" layoutY="257.0" prefHeight="11.0" prefWidth="242.0" promptText="Sua senha segura">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Button layoutX="171.0" layoutY="338.0" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="32.0" prefWidth="115.0" style="-fx-background-color: #f2ecff;" text="Login">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="43.0" layoutY="338.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="121.0" style="-fx-background-color: #149cd4;" text="Cadastrar-se" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="44.0" layoutY="134.0" text="E-mail" textFill="#797878">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="44.0" layoutY="235.0" text="Senha" textFill="#797878">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Text fontSmoothingType="LCD" layoutX="73.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entre com seu e-mail e senha cadastrados" textAlignment="CENTER" wrappingWidth="182.26953125">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Text>
+            <Line endX="119.0" layoutX="164.0" layoutY="104.0" startX="-114.0" stroke="#f2ecff" />
+         </children>
+      </Pane>
+      <ImageView fitHeight="117.0" fitWidth="365.0" layoutX="330.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo_transparent_background.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
