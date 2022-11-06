@@ -7,13 +7,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 public class Main extends Application {
+	
+	private static Scene mainScene;
+	private static Stage newStage;
 
 	@Override
 	public void start(Stage stage) {
 		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/gui/primary.fxml"));
-			Scene scene = new Scene(parent);
-			stage.setScene(scene);
+			Parent parent = FXMLLoader.load(getClass().getResource("/gui_ini/inicio.fxml"));
+			mainScene = new Scene(parent);
+			newStage = stage;
+			stage.setScene(mainScene);
 			stage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -21,8 +25,13 @@ public class Main extends Application {
 	}
 	
 	
+	public static Scene getMainScene() {
+		return mainScene;
+	}
 	
-	
+	public static Stage getMainStage() {
+		return newStage;
+	}
 
 	public static void main(String[] args) {
 		launch(args);
