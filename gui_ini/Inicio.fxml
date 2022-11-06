@@ -46,7 +46,7 @@
                   <Font name="Arial" size="36.0" />
                </font>
             </Label>
-            <Button layoutX="445.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleLogin" style="-fx-background-color: BLACK; -fx-background-radius: 5;" text="Navegar" textFill="WHITE">
+            <Button layoutX="445.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleClickNavigate" style="-fx-background-color: BLACK; -fx-background-radius: 5;" text="Navegar" textFill="WHITE">
                <padding>
                   <Insets bottom="5.0" left="40.0" right="40.0" top="5.0" />
                </padding>
