@@ -58,10 +58,22 @@
                   <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField disable="true" prefHeight="30.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="1" />
-                  <TextField disable="true" prefHeight="30.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="3" />
-                  <TextField disable="true" prefHeight="30.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="5" />
-                  <TextField disable="true" prefHeight="30.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="7" />
+                  <TextField disable="true" prefHeight="39.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <TextField disable="true" prefHeight="39.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <TextField disable="true" prefHeight="39.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <TextField disable="true" prefHeight="39.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="7">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
                   <Label text="Nome">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
@@ -146,9 +158,18 @@
                   <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField disable="true" prefHeight="30.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="1" />
-                  <TextField disable="true" prefHeight="30.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="3" />
-                  <TextField disable="true" prefHeight="30.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="5" />
+                  <TextField disable="true" prefHeight="39.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <TextField disable="true" prefHeight="39.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <TextField disable="true" prefHeight="39.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
                   <Label text="CPF">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
