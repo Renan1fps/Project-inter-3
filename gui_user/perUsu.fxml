@@ -58,40 +58,40 @@
                   <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField prefHeight="30.0" prefWidth="400.0" promptText="Nome do modelo" GridPane.rowIndex="1" />
-                  <TextField prefHeight="30.0" prefWidth="400.0" promptText="Ano do veículo" GridPane.rowIndex="3" />
-                  <TextField prefHeight="30.0" prefWidth="400.0" promptText="Cor do veículo" GridPane.rowIndex="5" />
-                  <TextField prefHeight="30.0" prefWidth="400.0" promptText="Placa do veículo" GridPane.rowIndex="7" />
-                  <Label text="Modelo">
+                  <TextField disable="true" prefHeight="30.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="1" />
+                  <TextField disable="true" prefHeight="30.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="3" />
+                  <TextField disable="true" prefHeight="30.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="5" />
+                  <TextField disable="true" prefHeight="30.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="7" />
+                  <Label text="Nome">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Ano" GridPane.rowIndex="2">
+                  <Label text="Telefone" GridPane.rowIndex="2">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Cor" GridPane.rowIndex="4">
+                  <Label text="Email" GridPane.rowIndex="4">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Placa" GridPane.rowIndex="6">
+                  <Label text="Nacionalidade" GridPane.rowIndex="6">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
                </children>
             </GridPane>
-            <Label layoutX="66.0" layoutY="130.0" text="Selecione uma foto para o cadastro do veículo:">
+            <Label layoutX="62.0" layoutY="130.0" text="Imagem de perfil:">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
             <ImageView fitHeight="170.0" fitWidth="200.0" layoutX="504.0" layoutY="55.0" pickOnBounds="true">
                <image>
-                  <Image url="@../../../../Downloads/download%20(1).jpg" />
+                  <Image url="@../../../../Downloads/Icone-usuario-Png-1024x1024.png" />
                </image>
             </ImageView>
             <Button layoutX="795.0" layoutY="120.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="182.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Inserir Imagem" textFill="WHITE">
@@ -100,8 +100,9 @@
                </font>
                <padding>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
-               </padding></Button>
-            <Button layoutX="743.0" layoutY="630.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="234.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Confirmar cadastro" textFill="WHITE">
+               </padding>
+            </Button>
+            <Button disable="true" layoutX="743.0" layoutY="630.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="234.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Confirmar Ajustes" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
@@ -118,81 +119,66 @@
                </padding>
             </Button>
             <Separator layoutY="41.0" prefHeight="3.0" prefWidth="1014.0" />
-            <Label layoutX="368.0" layoutY="7.0" text="Cadastro do Veículo">
+            <Label layoutX="414.0" layoutY="7.0" text="Perfil Usuário">
                <font>
                   <Font name="Arial" size="30.0" />
                </font>
             </Label>
-            <GridPane layoutX="561.0" layoutY="301.0" prefHeight="293.0" prefWidth="282.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <CheckBox mnemonicParsing="false" text="Possui vidro elétrico">
-                     <font>
-                        <Font name="Arial Bold" size="13.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="É um veículo com cãmbio automático" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Arial Bold" size="13.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="É um veículo premium?" GridPane.rowIndex="7">
-                     <font>
-                        <Font name="Arial Bold" size="13.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Possui Ar-Condicionado" GridPane.rowIndex="2">
-                     <font>
-                        <Font name="Arial Bold" size="13.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Possui freio ABS" GridPane.rowIndex="3">
-                     <font>
-                        <Font name="Arial Bold" size="13.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Possui quatro portas ou mais?" GridPane.rowIndex="4">
-                     <font>
-                        <Font name="Arial Bold" size="13.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Possui direção hidráulica" GridPane.rowIndex="5">
-                     <font>
-                        <Font name="Arial Bold" size="13.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Possui porta mala grande?" GridPane.rowIndex="6">
-                     <font>
-                        <Font name="Arial Bold" size="13.0" />
-                     </font>
-                  </CheckBox>
-               </children>
-            </GridPane>
             <Separator layoutY="244.0" prefHeight="3.0" prefWidth="1014.0" />
-            <Separator layoutX="504.0" layoutY="244.0" orientation="VERTICAL" prefHeight="369.0" prefWidth="4.0" />
-            <Label layoutX="561.0" layoutY="270.0" text="Selecione os itens que o veículo possui:">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="95.0" layoutY="270.0" text="Digite os dados do veículo:">
+            <Label layoutX="431.0" layoutY="262.0" text="Dados do usuário">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
             <Separator layoutY="613.0" prefHeight="3.0" prefWidth="1014.0" />
+            <GridPane layoutX="587.0" layoutY="301.0" prefHeight="293.0" prefWidth="338.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="498.0" minWidth="10.0" prefWidth="498.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextField disable="true" prefHeight="30.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="1" />
+                  <TextField disable="true" prefHeight="30.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="3" />
+                  <TextField disable="true" prefHeight="30.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="5" />
+                  <Label text="CPF">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Senha" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Confirma Senha" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <CheckBox disable="true" mnemonicParsing="false" text="Tornar Administrador" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </GridPane>
+            <Button layoutX="250.0" layoutY="630.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Editar" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+               </padding>
+            </Button>
          </children>
       </Pane>
    </children>
