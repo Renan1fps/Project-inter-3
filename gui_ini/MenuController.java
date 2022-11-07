@@ -41,7 +41,7 @@ public class MenuController implements Initializable {
 
 	private void initializeNodes() {
 		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-		tableColumnMarca.setCellValueFactory(new PropertyValueFactory<>("name"));
+		tableColumnMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
 		tableColumnModelo.setCellValueFactory(new PropertyValueFactory<>("modelo"));
 
 		Stage stage = (Stage) Main.getMainScene().getWindow();
