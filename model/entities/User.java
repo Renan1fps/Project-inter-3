@@ -7,22 +7,27 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
+	private String phone;
 	private String name;
 	private String email;
+	private String nacionalidade;
 	private String passowrd;
 	private String cpf;
+	private boolean is_adm;
 
 	
 	public User() {
 	}
 
-	public User(Integer id, String name, String email, String cpf, String password) {
+	public User(Integer id, String phone, String name, String email, String nacionalidade, String passowrd, String cpf, boolean is_adm) {
 		this.id = id;
+		this.phone = phone;
 		this.name = name;
 		this.email = email;
+		this.nacionalidade = nacionalidade;
+		this.passowrd = passowrd;
 		this.cpf = cpf;
-		this.passowrd = password;
-		
+		this.is_adm = is_adm;
 	}
 
 	public Integer getId() {
@@ -65,6 +70,33 @@ public class User implements Serializable {
 		return this.passowrd;
 	}
 
+	public String getPhone() {
+		return phone;
+	}
+
+	public String getNacionalidade() {
+		return nacionalidade;
+	}
+
+	public boolean isIs_adm() {
+		return is_adm;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public void setNacionalidade(String nacionalidade) {
+		this.nacionalidade = nacionalidade;
+	}
+
+	public void setPassowrd(String passowrd) {
+		this.passowrd = passowrd;
+	}
+
+	public void setIs_adm(boolean is_adm) {
+		this.is_adm = is_adm;
+	}
 
 	@Override
 	public int hashCode() {
@@ -93,6 +125,15 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User id=" + id + ", name=" + name + ", email=" + email;
+		return "User{" +
+				"id=" + id +
+				", phone='" + phone + '\'' +
+				", name='" + name + '\'' +
+				", email='" + email + '\'' +
+				", nacionalidade='" + nacionalidade + '\'' +
+				", passowrd='" + passowrd + '\'' +
+				", cpf='" + cpf + '\'' +
+				", is_adm=" + is_adm +
+				'}';
 	}
 }

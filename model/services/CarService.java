@@ -15,5 +15,11 @@ public class CarService {
 		//carList.add(new Car(1, "BMW", "NORMAL", 2021, "PRETO", 150000, true, true, true, true, true, true, true, true));
 		//carList.add(new Car(2, "Volkswagen", "NORMAL", 2018, "BRANCO", 45000, true, false, true, true, true, true, false, false));
 	}
+	public List<Car> findOne() {
+		return dao.finOne();
+		//carList.add(new Car(1, "BMW", "NORMAL", 2021, "PRETO", 150000, true, true, true, true, true, true, true, true));
+		//carList.add(new Car(2, "Volkswagen", "NORMAL", 2018, "BRANCO", 45000, true, false, true, true, true, true, false, false));
+	}
+
 
 }

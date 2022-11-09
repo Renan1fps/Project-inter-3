@@ -9,4 +9,5 @@ public interface CarDao {
     void deleteById(int id);
     List<Car> findCondition(Car obj);
     List<Car> findAll();
+    List<Car> finOne();
 }

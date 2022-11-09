@@ -24,22 +24,21 @@ public class CarDaoJDBC implements CarDao {
         try {
             st = conn.prepareStatement(
                     "INSERT INTO tb_car "
-                            + "(marca, modelo, ano, cor, valor, vidro_eletrico, cambio_automatico, ar_condicionado, freio_abs, quatro_portas, direcao_hidraulica, porta_mala_grande, premium) "
+                            + "(modelo, ano, cor, valor, vidro_eletrico, cambio_automatico, ar_condicionado, freio_abs, quatro_portas, direcao_hidraulica, porta_mala_grande, premium) "
                             + "VALUES " + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 
-            st.setString(1, obj.getMarca());
-            st.setString(2, obj.getModelo());
-            st.setInt(3, obj.getAno());
-            st.setString(4, obj.getCor());
-            st.setDouble(5, obj.getValor());
-            st.setBoolean(6, obj.getVidroEletrico());
-            st.setBoolean(7, obj.getCambioAutomatico());
-            st.setBoolean(8, obj.getArCondicionado());
-            st.setBoolean(9, obj.getFreioAbs());
-            st.setBoolean(10, obj.getQuatroPortas());
-            st.setBoolean(11, obj.getDirecaoHidrauliaca());
-            st.setBoolean(12, obj.getPortaMalaGrande());
-            st.setBoolean(13, obj.getPremium());
+            st.setString(1, obj.getModelo());
+            st.setInt(2, obj.getAno());
+            st.setString(3, obj.getCor());
+            st.setDouble(4, obj.getValor());
+            st.setBoolean(5, obj.getVidroEletrico());
+            st.setBoolean(6, obj.getCambioAutomatico());
+            st.setBoolean(7, obj.getArCondicionado());
+            st.setBoolean(8, obj.getFreioAbs());
+            st.setBoolean(9, obj.getQuatroPortas());
+            st.setBoolean(10, obj.getDirecaoHidrauliaca());
+            st.setBoolean(11, obj.getPortaMalaGrande());
+            st.setBoolean(12, obj.getPremium());
 
             int rowsAffected = st.executeUpdate();
 
@@ -112,10 +111,14 @@ public class CarDaoJDBC implements CarDao {
         }
     }
 
+    @Override
+    public List<Car> finOne() {
+        return null;
+    }
+
     private Car instantiateCar(ResultSet rs) throws SQLException {
         Car obj = new Car();
         obj.setId(rs.getInt("id_car"));
-        obj.setMarca(rs.getString("marca"));
         obj.setModelo(rs.getString("modelo"));
         obj.setId(rs.getInt("ano"));
         obj.setModelo(rs.getString("cor"));
