@@ -14,10 +14,30 @@ public class ServicosController implements Initializable {
 
     @FXML
     public void handleClickBasic() {
-        loader.loadView("/gui_ini/menuPrin.fxml", (MenuController menuController) -> {
+        loader.loadView("/gui_ini/tabelasCarros.fxml", (MenuController menuController) -> {
+            menuController.setService(new CarService());
+            menuController.updateTableView(false);
+        });
+    }
+
+    @FXML
+    public void handleClickPremium() {
+        loader.loadView("/gui_ini/tabelasCarros.fxml", (MenuController menuController) -> {
             menuController.setService(new CarService());
             menuController.updateTableView(true);
         });
+    }
+
+    @FXML
+    public void handleClickWhoWeAre() {
+        loader.loadView("/gui_ini/quemSomos.fxml", (x -> {
+        }));
+    }
+
+    @FXML
+    public void handleClickInit() {
+        loader.loadView("/gui_ini/inicio.fxml", (x -> {
+        }));
     }
 
     @Override

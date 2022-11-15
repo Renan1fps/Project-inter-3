@@ -36,6 +36,24 @@ public class MenuController implements Initializable {
 
     private ObservableList<Car> obsList;
 
+    @FXML
+    public void handleClickWhoWeAre() {
+        loader.loadView("/gui_ini/quemSomos.fxml", (x -> {
+        }));
+    }
+
+    @FXML
+    public void handleClickInit() {
+        loader.loadView("/gui_ini/inicio.fxml", (x -> {
+        }));
+    }
+
+    @FXML
+    public void handleClickServices() {
+        loader.loadView("/gui_ini/servicos.fxml", (x -> {
+        }));
+    }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         initializeNodes();
@@ -49,7 +67,7 @@ public class MenuController implements Initializable {
         tableColumnModelo.setCellValueFactory(new PropertyValueFactory<>("modelo"));
 
         Stage stage = (Stage) Main.getMainScene().getWindow();
-        tableViewCar.prefHeightProperty().bind(stage.heightProperty());
+        //tableViewCar.prefHeightProperty().bind(stage.heightProperty());
     }
 
     public void updateTableView(boolean tipoPremium) {

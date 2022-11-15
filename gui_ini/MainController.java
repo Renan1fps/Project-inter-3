@@ -26,7 +26,7 @@ public class MainController implements Initializable {
     public void handleClickNavigate() {
         loader.loadView("/gui_ini/tabelasCarros.fxml", (MenuController menuController) -> {
             menuController.setService(new CarService());
-            menuController.updateTableView();
+            menuController.updateTableView(true);
         });
     }
 
