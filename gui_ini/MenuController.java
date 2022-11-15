@@ -4,8 +4,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import application.Main;
-import gui_user.LocarVeiController;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,7 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 import model.entities.Car;
 import model.services.CarService;
 import utils.Loader;
@@ -29,10 +27,22 @@ public class MenuController implements Initializable {
     private TableColumn<Car, Integer> tableColumnId;
 
     @FXML
-    private TableColumn<Car, String> tableColumnMarca;
+    private TableColumn<Car, String> tableColumnCor;
 
     @FXML
     private TableColumn<Car, String> tableColumnModelo;
+
+    @FXML
+    private TableColumn<Car, Integer> tableColumnAno;
+
+    @FXML
+    private TableColumn<Car, String> tableColumnPlaca;
+
+    @FXML
+    private TableColumn<Car, Double> tableColumnValor;
+
+    @FXML
+    private TableColumn<Car, Boolean> tableColumnVidroEletrico;
 
     private ObservableList<Car> obsList;
 
@@ -63,11 +73,12 @@ public class MenuController implements Initializable {
 
     private void initializeNodes() {
         tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        tableColumnMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
+        tableColumnCor.setCellValueFactory(new PropertyValueFactory<>("cor"));
         tableColumnModelo.setCellValueFactory(new PropertyValueFactory<>("modelo"));
-
-        Stage stage = (Stage) Main.getMainScene().getWindow();
-        //tableViewCar.prefHeightProperty().bind(stage.heightProperty());
+        tableColumnAno.setCellValueFactory(new PropertyValueFactory<>("ano"));
+        tableColumnPlaca.setCellValueFactory(new PropertyValueFactory<>("placa"));
+        tableColumnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
+        tableColumnVidroEletrico.setCellValueFactory(new PropertyValueFactory<>("vidroEletrico"));
     }
 
     public void updateTableView(boolean tipoPremium) {

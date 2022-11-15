@@ -175,13 +175,19 @@
                               </AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
-                                    <Pane layoutX="277.0" layoutY="202.0" prefHeight="604.0" prefWidth="754.0" style="-fx-background-color: #f2ecff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <Pane layoutX="9.0" layoutY="202.0" prefHeight="604.0" prefWidth="745.0" style="-fx-background-color: #f2ecff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <TableView fx:id="tableViewCar" layoutX="-7.0" prefHeight="589.0" prefWidth="754.0" style="-fx-background-color: WHITE;">
+                                          <TableView fx:id="tableViewCar" layoutX="2.0" layoutY="-6.0" prefHeight="595.0" prefWidth="745.0" style="-fx-background-color: WHITE;">
                                             <columns>
-                                              <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Id" />
-                                              <TableColumn fx:id="tableColumnModelo" prefWidth="75.0" text="Modelo" />
-                                                <TableColumn fx:id="tableColumnMarca" prefWidth="75.0" text="Marca" />
+                                              <TableColumn fx:id="tableColumnId" prefWidth="50.0" text="Id" />
+                                              <TableColumn fx:id="tableColumnCor" prefWidth="77.0" text="Cor" />
+                                                <TableColumn fx:id="tableColumnModelo" prefWidth="73.0" text="Modelo" />
+                                                <TableColumn fx:id="tableColumnAno" prefWidth="76.0" text="Ano" />
+                                                <TableColumn fx:id="tableColumnPlaca" prefWidth="61.0" text="Placa" />
+                                                <TableColumn fx:id="tableColumnValor" prefWidth="73.0" text="Valor" />
+                                                <TableColumn fx:id="tableColumnVidroEletrico" prefWidth="86.0" text="Vidro eletrico" />
+                                                <TableColumn fx:id="tableColumnMarca11111" prefWidth="87.0" text="Cambio auto." />
+                                                <TableColumn fx:id="tableColumnMarca111111" prefWidth="125.0" text="Ar condicionado" />
                                             </columns>
                                           </TableView>
                                        </children></Pane>

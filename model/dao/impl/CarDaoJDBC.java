@@ -121,8 +121,8 @@ public class CarDaoJDBC implements CarDao {
         Car obj = new Car();
         obj.setId(rs.getInt("id_car"));
         obj.setModelo(rs.getString("modelo"));
-        obj.setId(rs.getInt("ano"));
-        obj.setModelo(rs.getString("cor"));
+        obj.setAno(rs.getInt("ano"));
+        obj.setCor(rs.getString("cor"));
         obj.setValor(rs.getDouble("valor"));
         obj.setVidroEletrico(rs.getBoolean("vidro_eletrico"));
         obj.setCambioAutomatico(rs.getBoolean("cambio_automatico"));
@@ -132,7 +132,6 @@ public class CarDaoJDBC implements CarDao {
         obj.setDirecaoHidrauliaca(rs.getBoolean("direcao_hidraulica"));
         obj.setPortaMalaGrande(rs.getBoolean("porta_mala_grande"));
         obj.setPremium(rs.getBoolean("premium"));
-
         return obj;
     }
 }
