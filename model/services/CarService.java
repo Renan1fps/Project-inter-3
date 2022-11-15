@@ -10,8 +10,8 @@ public class CarService {
 
 	private final CarDao dao = DaoFactory.createCarDao();
 
-	public List<Car> findAll() {
-		return dao.findAll();
+	public List<Car> findAll(boolean tipoPremium) {
+		return dao.findAll(tipoPremium);
 		//carList.add(new Car(1, "BMW", "NORMAL", 2021, "PRETO", 150000, true, true, true, true, true, true, true, true));
 		//carList.add(new Car(2, "Volkswagen", "NORMAL", 2018, "BRANCO", 45000, true, false, true, true, true, true, false, false));
 	}

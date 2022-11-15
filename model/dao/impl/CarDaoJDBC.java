@@ -88,12 +88,13 @@ public class CarDaoJDBC implements CarDao {
     }
 
     @Override
-    public List<Car> findAll() {
+    public List<Car> findAll(boolean tipoBasico) {
         PreparedStatement st = null;
         ResultSet rs = null;
         try {
-            st = conn.prepareStatement("SELECT *" + "FROM tb_car ");
+            st = conn.prepareStatement("SELECT * FROM tb_car where premium = ? ");
 
+            st.setBoolean(1, tipoBasico);
             rs = st.executeQuery();
 
             List<Car> list = new ArrayList<>();

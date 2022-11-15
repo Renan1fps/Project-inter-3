@@ -8,6 +8,6 @@ public interface CarDao {
     void update(Car obj);
     void deleteById(int id);
     List<Car> findCondition(Car obj);
-    List<Car> findAll();
+    List<Car> findAll(boolean tipoBasico);
     List<Car> finOne();
 }

@@ -50,21 +50,13 @@ public class MenuController implements Initializable {
 
         Stage stage = (Stage) Main.getMainScene().getWindow();
         tableViewCar.prefHeightProperty().bind(stage.heightProperty());
-        Car carro = tableViewCar.getSelectionModel().getSelectedItem();
-        if (carro != null) {
-            System.out.println("Entrou aqui");
-//            loader.loadView("/gui_ini/locarVei.fxml", (LocarVeiController locarVeiController) -> {
-//                locarVeiController.setService(new CarService());
-//                locarVeiController.getCar();
-//            });
-        }
     }
 
-    public void updateTableView() {
+    public void updateTableView(boolean tipoPremium) {
         if (carService == null) {
             throw new IllegalStateException("Service was null");
         }
-        List<Car> list = carService.findAll();
+        List<Car> list = carService.findAll(tipoPremium);
         obsList = FXCollections.observableArrayList(list);
         tableViewCar.setItems(obsList);
     }
