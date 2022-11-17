@@ -79,10 +79,13 @@
                                        </font>
                                     </Button>
                                     <Separator layoutX="34.0" layoutY="69.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0" />
-                                    <Button layoutX="93.0" layoutY="70.0" mnemonicParsing="false" prefHeight="70.0" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Locações" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="71.0">
+                                    <Button layoutX="93.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleClickLocations" prefHeight="70.0" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Locações" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="71.0">
                                        <font>
                                           <Font name="Arial Bold" size="16.0" />
                                        </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                     <Separator layoutX="34.0" layoutY="140.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                     <GridPane layoutX="14.0" layoutY="231.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0">
@@ -100,49 +103,49 @@
                                           <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <CheckBox mnemonicParsing="false" text="Vidro elétrico">
+                                          <CheckBox fx:id="vidroEletrico" mnemonicParsing="false" text="Vidro elétrico">
                                              <font>
                                                 <Font name="Arial Bold" size="12.0" />
                                              </font>
                                           </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Veículo Automático" GridPane.rowIndex="1">
+                                          <CheckBox fx:id="cambioAutomatico" mnemonicParsing="false" text="Veículo Automático" GridPane.rowIndex="1">
                                              <font>
                                                 <Font name="Arial Bold" size="12.0" />
                                              </font>
                                           </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Ar-Condicionado" GridPane.rowIndex="2">
+                                          <CheckBox fx:id="ArCondicionado" mnemonicParsing="false" text="Ar-Condicionado" GridPane.rowIndex="2">
                                              <font>
                                                 <Font name="Arial Bold" size="12.0" />
                                              </font>
                                           </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Freio ABS" GridPane.rowIndex="3">
+                                          <CheckBox fx:id="FreioABS" mnemonicParsing="false" text="Freio ABS" GridPane.rowIndex="3">
                                              <font>
                                                 <Font name="Arial Bold" size="12.0" />
                                              </font>
                                           </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="4 Portas" GridPane.rowIndex="4">
+                                          <CheckBox fx:id="QuatroPortas" mnemonicParsing="false" text="4 Portas" GridPane.rowIndex="4">
                                              <font>
                                                 <Font name="Arial Bold" size="12.0" />
                                              </font>
                                           </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Direção Hidráulica" GridPane.rowIndex="5">
+                                          <CheckBox fx:id="DirecaoHidraulica" mnemonicParsing="false" text="Direção Hidráulica" GridPane.rowIndex="5">
                                              <font>
                                                 <Font name="Arial Bold" size="12.0" />
                                              </font>
                                           </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Porta Mala Grande" GridPane.rowIndex="6">
+                                          <CheckBox fx:id="PortaMalaGrande" mnemonicParsing="false" text="Porta Mala Grande" GridPane.rowIndex="6">
                                              <font>
                                                 <Font name="Arial Bold" size="12.0" />
                                              </font>
                                           </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Premium" GridPane.rowIndex="7">
+                                          <CheckBox fx:id="Premium" mnemonicParsing="false" text="Premium" GridPane.rowIndex="7">
                                              <font>
                                                 <Font name="Arial Bold" size="12.0" />
                                              </font>
                                           </CheckBox>
                                        </children>
                                     </GridPane>
-                                    <Button layoutX="64.0" layoutY="418.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: black;" text="Filtrar" textFill="WHITE" AnchorPane.bottomAnchor="10.0">
+                                    <Button layoutX="64.0" layoutY="418.0" mnemonicParsing="false" onAction="#findCondition" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: black;" text="Filtrar" textFill="WHITE" AnchorPane.bottomAnchor="10.0">
                                        <padding>
                                           <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                                        </padding>

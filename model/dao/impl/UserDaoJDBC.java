@@ -151,8 +151,7 @@ public class UserDaoJDBC implements UserDao {
 			st.setString(1, email);
 			rs = st.executeQuery();
 			if (rs.next()) {
-				User obj = instantiateUser(rs);
-				return obj;
+				return instantiateUser(rs);
 			}
 			return null;
 		} catch (SQLException e) {

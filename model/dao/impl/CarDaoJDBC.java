@@ -4,6 +4,7 @@ import database.DbException;
 import database.Provider;
 import model.dao.CarDao;
 import model.entities.Car;
+import utils.SearchParams;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -84,7 +85,61 @@ public class CarDaoJDBC implements CarDao {
 
     @Override
     public List<Car> findCondition(Car obj) {
-        return null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            String query = "SELECT * FROM tb_car where disponivel = 1";
+
+            if(obj.getVidroEletrico()){
+                query += " and vidro_eletrico = 1";
+            }
+
+            if(obj.getCambioAutomatico()){
+                query += " and cambio_automatico = 1";
+            }
+
+            if(obj.getArCondicionado()){
+                query += " and ar_condicionado = 1";
+            }
+
+            if(obj.getFreioAbs()){
+                query += " and freio_abs = 1";
+            }
+
+            if(obj.getQuatroPortas()){
+                query += " and quatro_portas = 1";
+            }
+
+            if(obj.getDirecaoHidrauliaca()){
+                query += " and direcao_hidraulica = 1";
+            }
+
+            if(obj.getPortaMalaGrande()){
+                query += " and porta_mala_grande = 1";
+            }
+
+            if(obj.getPremium()){
+                query += " and premium = 1";
+            }
+
+            System.out.println();
+            st = conn.prepareStatement(query);
+            rs = st.executeQuery();
+
+            List<Car> list = new ArrayList<>();
+
+            while (rs.next()) {
+                Car dbCar = instantiateCar(rs);
+                list.add(dbCar);
+            }
+            return list;
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        } finally {
+            Provider.closeStatement(st);
+            Provider.closeResultSet(rs);
+        }
+
     }
 
     @Override

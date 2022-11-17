@@ -5,21 +5,38 @@ import java.util.List;
 import model.dao.CarDao;
 import model.dao.DaoFactory;
 import model.entities.Car;
+import utils.SearchParams;
 
-public class CarService {
+public class CarService implements CarDao {
 
 	private final CarDao dao = DaoFactory.createCarDao();
 
+	@Override
+	public void insert(Car obj) {
+
+	}
+
+	@Override
+	public void update(Car obj) {
+
+	}
+
+	@Override
+	public void deleteById(int id) {
+
+	}
+
+	@Override
+	public List<Car> findCondition(Car obj) {
+		return dao.findCondition(obj);
+	}
+
 	public List<Car> findAll(boolean tipoPremium) {
 		return dao.findAll(tipoPremium);
-		//carList.add(new Car(1, "BMW", "NORMAL", 2021, "PRETO", 150000, true, true, true, true, true, true, true, true));
-		//carList.add(new Car(2, "Volkswagen", "NORMAL", 2018, "BRANCO", 45000, true, false, true, true, true, true, false, false));
 	}
-	public List<Car> findOne() {
+
+	@Override
+	public List<Car> finOne() {
 		return dao.finOne();
-		//carList.add(new Car(1, "BMW", "NORMAL", 2021, "PRETO", 150000, true, true, true, true, true, true, true, true));
-		//carList.add(new Car(2, "Volkswagen", "NORMAL", 2018, "BRANCO", 45000, true, false, true, true, true, true, false, false));
 	}
-
-
 }

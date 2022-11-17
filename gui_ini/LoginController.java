@@ -1,64 +1,73 @@
 package gui_ini;
 
+import application.Main;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
+
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import model.entities.User;
 import model.services.UserService;
 import utils.Alerts;
+import utils.Loader;
 
 public class LoginController implements Initializable {
 
-	private UserService userService;
+    private UserService userService;
+    private Loader loader;
 
-	@FXML
-	private TextField TXT_email;
+    @FXML
+    private TextField TXT_email;
 
-	@FXML
-	private TextField TXT_senha;
+    @FXML
+    private TextField TXT_senha;
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-	}
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        loader = new Loader();
+    }
 
-	private void validateForm() throws Exception {
+    private void validateForm() throws Exception {
 
-		if (TXT_email.getText() == null || TXT_email.getText().trim().equals("")) {
-			Alerts.showAlert("Email incorreto", "Email", "O campo de email não pode estar vazio", AlertType.WARNING);
-			throw new Exception();
-		}
+        if (TXT_email.getText() == null || TXT_email.getText().trim().equals("")) {
+            Alerts.showAlert("Email incorreto", "Email", "O campo de email nï¿½o pode estar vazio", AlertType.WARNING);
+            throw new Exception();
+        }
 
-		if (TXT_senha.getText() == null || TXT_senha.getText().trim().equals("")) {
-			Alerts.showAlert("Senha incorreta", "Senha", "O campo de senha não pode estar vazio", AlertType.WARNING);
-			throw new Exception();
-		}
+        if (TXT_senha.getText() == null || TXT_senha.getText().trim().equals("")) {
+            Alerts.showAlert("Senha incorreta", "Senha", "O campo de senha nï¿½o pode estar vazio", AlertType.WARNING);
+            throw new Exception();
+        }
 
-	}
+    }
 
-	@FXML
-	void handleLogin(ActionEvent event) {
-		try {
-			validateForm();
-			User user = this.userService.findByEmail(TXT_email.getText());
+    @FXML
+    void handleLogin(ActionEvent event) {
+        try {
+            validateForm();
+            User user = this.userService.findByEmail(TXT_email.getText());
 
-			if (user == null) {
-				Alerts.showAlert("Usuário não encontrado", "Usuário", "Usuário não encontrado na base de dados",
-						AlertType.ERROR);
-			}
+            if (user == null) {
+                Alerts.showAlert("UsuÃ¡rio nÃ£o encontrado", "UsuÃ¡rio", "UsuÃ¡rio nÃ£o encontrado na base de dados",
+                        AlertType.ERROR);
+            } else {
+                Main.setAutenticado();
+                loader.loadView("/gui_ini/tabelasCarros.fxml", (x -> {
+                }));
+                //Alerts.showAlert("UsuÃ¡rio Autenticado", "UsuÃ¡rio", user.getEmail(), AlertType.CONFIRMATION);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-			Alerts.showAlert("Usuário Autenticado", "Usuário", user.getEmail(), AlertType.CONFIRMATION);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+    }
 
-	}
-
-	void setService(UserService userServiceNovo) {
-		this.userService = userServiceNovo;
-	}
+    void setService(UserService userServiceNovo) {
+        this.userService = userServiceNovo;
+    }
 
 }
