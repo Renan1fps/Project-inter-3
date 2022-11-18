@@ -25,6 +25,6 @@ public class QuemSomosController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loader = new Loader();
+        loader = Loader.getLoaderInstance();
     }
 }

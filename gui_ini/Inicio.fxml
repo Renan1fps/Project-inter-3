@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui_ini.MainController">
+<AnchorPane id="AnchorPane" prefHeight="630.0" prefWidth="931.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui_ini.MainController">
    <children>
       <Pane layoutX="294.0" layoutY="195.0" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="688.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -19,7 +19,7 @@
                   <Image url="@../images/logo_transparent_background.png" />
                </image>
             </ImageView>
-            <Button layoutX="778.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickWhoWeAre" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Quem somos" textFill="#797878">
+            <Button layoutX="729.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickWhoWeAre" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Quem somos" textFill="#797878">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
@@ -27,7 +27,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="707.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Inicio" textFill="#797878">
+            <Button layoutX="646.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Inicio" textFill="#797878">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
@@ -35,7 +35,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="900.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickServices" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Serviços" textFill="#797878">
+            <Button layoutX="829.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickServices" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Serviços" textFill="#797878">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
@@ -47,12 +47,12 @@
       </Pane>
       <Pane layoutX="5.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f2ecff;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="80.0">
          <children>
-            <Label layoutX="430.0" layoutY="262.0" text="LocaFacil">
+            <Label layoutX="383.0" layoutY="263.0" text="LocaFacil">
                <font>
                   <Font name="Arial" size="36.0" />
                </font>
             </Label>
-            <Button layoutX="445.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleClickNavigate" style="-fx-background-color: BLACK; -fx-background-radius: 5;" text="Navegar" textFill="WHITE">
+            <Button layoutX="398.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleClickNavigate" style="-fx-background-color: BLACK; -fx-background-radius: 5;" text="Navegar" textFill="WHITE">
                <padding>
                   <Insets bottom="5.0" left="40.0" right="40.0" top="5.0" />
                </padding>

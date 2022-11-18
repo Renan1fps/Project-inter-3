@@ -44,7 +44,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL uri, ResourceBundle rb) {
-        loader = new Loader();
+        loader = Loader.getLoaderInstance();
     }
 
 }
