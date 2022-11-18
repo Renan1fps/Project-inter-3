@@ -114,6 +114,8 @@ public class UserDaoJDBC implements UserDao {
 		obj.setName(rs.getString("name"));
 		obj.setEmail(rs.getString("email"));
 		obj.setCpf(rs.getString("cpf"));
+		obj.setPhone(rs.getString("phone"));
+		obj.setNacionalidade(rs.getString("nacionalidade"));
 		return obj;
 	}
 

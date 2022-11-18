@@ -1,6 +1,5 @@
 package gui_ini;
 
-import application.Main;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 
@@ -12,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import model.entities.User;
 import model.services.UserService;
+import state.AuthState;
 import utils.Alerts;
 import utils.Loader;
 
@@ -42,7 +42,6 @@ public class LoginController implements Initializable {
             Alerts.showAlert("Senha incorreta", "Senha", "O campo de senha n�o pode estar vazio", AlertType.WARNING);
             throw new Exception();
         }
-
     }
 
     @FXML
@@ -55,18 +54,17 @@ public class LoginController implements Initializable {
                 Alerts.showAlert("Usuário não encontrado", "Usuário", "Usuário não encontrado na base de dados",
                         AlertType.ERROR);
             } else {
-                Main.setAutenticado();
+                AuthState.setIsAuthenticated();
+                AuthState.setUser(user);
                 loader.loadView("/gui_ini/tabelasCarros.fxml", (x -> {
                 }));
-                //Alerts.showAlert("Usuário Autenticado", "Usuário", user.getEmail(), AlertType.CONFIRMATION);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
-    void setService(UserService userServiceNovo) {
+    public void setService(UserService userServiceNovo) {
         this.userService = userServiceNovo;
     }
 

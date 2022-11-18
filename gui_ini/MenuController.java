@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 
-import application.Main;
+import gui_user.PerUsuController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,6 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.entities.Car;
 import model.services.CarService;
 import model.services.UserService;
+import state.AuthState;
 import utils.Loader;
 
 public class MenuController implements Initializable {
@@ -89,6 +90,14 @@ public class MenuController implements Initializable {
     public void handleClickServices() {
         loader.loadView("/gui_ini/servicos.fxml", (x -> {
         }));
+    }
+
+    @FXML
+    public void handleClickUserProfile() {
+        loader.loadView("../gui_user/perUsu.fxml", (PerUsuController perUsuController) -> {
+            perUsuController.setService(new UserService());
+            perUsuController.updateView();
+        });
     }
 
     @Override
@@ -168,9 +177,9 @@ public class MenuController implements Initializable {
 
     @FXML
     public void handleClickLocations() {
-        Boolean estaAutenticado = Main.estaAutenticado();
+        Boolean isUserAuth = AuthState.isAuthenticated();
 
-        if (!estaAutenticado) {
+        if (!isUserAuth) {
             loader.loadView("/gui_ini/login.fxml", (LoginController loginController) -> {
                 loginController.setService(new UserService());
             });

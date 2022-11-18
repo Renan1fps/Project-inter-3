@@ -73,7 +73,7 @@
                               </AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #EAE3E3;">
                                  <children>
-                                    <Button layoutX="58.0" layoutY="22.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="248.0" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Perfil" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <Button layoutX="58.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleClickUserProfile" prefHeight="50.0" prefWidth="248.0" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Perfil" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <font>
                                           <Font name="Arial Bold" size="16.0" />
                                        </font>

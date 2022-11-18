@@ -13,9 +13,8 @@ public class User implements Serializable {
 	private String nacionalidade;
 	private String passowrd;
 	private String cpf;
-	private boolean is_adm;
+	private Boolean is_adm;
 
-	
 	public User() {
 	}
 

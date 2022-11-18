@@ -6,16 +6,17 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+import java.util.Objects;
+
 public class Main extends Application {
 
     private static Scene mainScene;
     private static Stage newStage;
-    private static Boolean autenticado = false;
 
     @Override
     public void start(Stage stage) {
         try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/gui_ini/inicio.fxml"));
+            Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/gui_ini/inicio.fxml")));
             mainScene = new Scene(parent);
             newStage = stage;
             stage.setScene(mainScene);
@@ -32,14 +33,6 @@ public class Main extends Application {
 
     public static Stage getMainStage() {
         return newStage;
-    }
-
-    public static Boolean estaAutenticado() {
-        return autenticado;
-    }
-
-    public static  void setAutenticado(){
-        autenticado = true;
     }
 
     public static void main(String[] args) {
