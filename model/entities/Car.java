@@ -21,6 +21,7 @@ public class Car implements Serializable {
     private boolean direcaoHidrauliaca;
     private boolean portaMalaGrande;
     private boolean premium;
+    private Unit unit;
 
     public Car() {
     }
@@ -147,17 +148,25 @@ public class Car implements Serializable {
         this.premium = premium;
     }
 
+    public Unit getUnit() {
+        return unit;
+    }
+
+    public void setUnit(Unit unit) {
+        this.unit = unit;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return id == car.id && ano == car.ano && Double.compare(car.valor, valor) == 0 && vidroEletrico == car.vidroEletrico && cambioAutomatico == car.cambioAutomatico && arCondicionado == car.arCondicionado && freioAbs == car.freioAbs && quatroPortas == car.quatroPortas && direcaoHidrauliaca == car.direcaoHidrauliaca && portaMalaGrande == car.portaMalaGrande && premium == car.premium && Objects.equals(modelo, car.modelo) && Objects.equals(cor, car.cor);
+        return id == car.id && ano == car.ano && Double.compare(car.valor, valor) == 0 && vidroEletrico == car.vidroEletrico && cambioAutomatico == car.cambioAutomatico && arCondicionado == car.arCondicionado && freioAbs == car.freioAbs && quatroPortas == car.quatroPortas && direcaoHidrauliaca == car.direcaoHidrauliaca && portaMalaGrande == car.portaMalaGrande && premium == car.premium && Objects.equals(modelo, car.modelo) && Objects.equals(cor, car.cor) && Objects.equals(unit, car.unit);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, modelo, ano, cor, valor, vidroEletrico, cambioAutomatico, arCondicionado, freioAbs, quatroPortas, direcaoHidrauliaca, portaMalaGrande, premium);
+        return Objects.hash(id, modelo, ano, cor, valor, vidroEletrico, cambioAutomatico, arCondicionado, freioAbs, quatroPortas, direcaoHidrauliaca, portaMalaGrande, premium, unit);
     }
 
     @Override
@@ -176,6 +185,7 @@ public class Car implements Serializable {
                 ", direcaoHidrauliaca=" + direcaoHidrauliaca +
                 ", portaMalaGrande=" + portaMalaGrande +
                 ", premium=" + premium +
+                ", unit=" + unit +
                 '}';
     }
 }

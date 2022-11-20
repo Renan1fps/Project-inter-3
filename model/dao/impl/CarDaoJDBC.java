@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CarDaoJDBC implements CarDao {
 
-    private Connection conn;
+    private final Connection conn;
 
     public CarDaoJDBC(Connection conn) {
         this.conn = conn;
@@ -88,38 +88,44 @@ public class CarDaoJDBC implements CarDao {
         PreparedStatement st = null;
         ResultSet rs = null;
         try {
-            String query = "SELECT * FROM tb_car where disponivel = 1";
+
+            String query = "SELECT tc.* FROM tb_car tc inner join tb_unit tu ON tu.id_unit = tc.id_unit where tc.disponivel = 1";
+            //String query = "SELECT * FROM tb_car where disponivel = 1";
 
             if(obj.getVidroEletrico()){
-                query += " and vidro_eletrico = 1";
+                query += " and tc.vidro_eletrico = 1";
             }
 
             if(obj.getCambioAutomatico()){
-                query += " and cambio_automatico = 1";
+                query += " and tc.cambio_automatico = 1";
             }
 
             if(obj.getArCondicionado()){
-                query += " and ar_condicionado = 1";
+                query += " and tc.ar_condicionado = 1";
             }
 
             if(obj.getFreioAbs()){
-                query += " and freio_abs = 1";
+                query += " and tc.freio_abs = 1";
             }
 
             if(obj.getQuatroPortas()){
-                query += " and quatro_portas = 1";
+                query += " and tc.quatro_portas = 1";
             }
 
             if(obj.getDirecaoHidrauliaca()){
-                query += " and direcao_hidraulica = 1";
+                query += " and tc.direcao_hidraulica = 1";
             }
 
             if(obj.getPortaMalaGrande()){
-                query += " and porta_mala_grande = 1";
+                query += " and tc.porta_mala_grande = 1";
             }
 
             if(obj.getPremium()){
-                query += " and premium = 1";
+                query += " and tc.premium = 1";
+            }
+
+            if(obj.getUnit().getName() != null){
+                query += " and tu.name = " + '"' + obj.getUnit().getName() + '"' ;
             }
 
             System.out.println();

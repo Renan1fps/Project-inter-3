@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
 import model.services.CarService;
+import model.services.UnitService;
 import utils.Loader;
 
 public class MainController implements Initializable {
@@ -25,7 +26,8 @@ public class MainController implements Initializable {
     @FXML
     public void handleClickNavigate() {
         loader.loadView("/gui_ini/tabelasCarros.fxml", (MenuController menuController) -> {
-            menuController.setService(new CarService());
+            menuController.setCarService(new CarService());
+            menuController.setUnitService(new UnitService());
             menuController.updateTableView(true);
         });
     }

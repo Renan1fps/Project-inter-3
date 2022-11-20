@@ -3,6 +3,7 @@ package gui_ini;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import model.services.CarService;
+import model.services.UnitService;
 import utils.Loader;
 
 import java.net.URL;
@@ -16,7 +17,8 @@ public class ServicosController implements Initializable {
     @FXML
     public void handleClickBasic() {
         loader.loadView("/gui_ini/tabelasCarros.fxml", (MenuController menuController) -> {
-            menuController.setService(new CarService());
+            menuController.setCarService(new CarService());
+            menuController.setUnitService(new UnitService());
             menuController.updateTableView(false);
         });
     }
@@ -24,7 +26,8 @@ public class ServicosController implements Initializable {
     @FXML
     public void handleClickPremium() {
         loader.loadView("/gui_ini/tabelasCarros.fxml", (MenuController menuController) -> {
-            menuController.setService(new CarService());
+            menuController.setCarService(new CarService());
+            menuController.setUnitService(new UnitService());
             menuController.updateTableView(true);
         });
     }
