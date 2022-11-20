@@ -1,6 +1,7 @@
 package gui_ini;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -10,19 +11,21 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.entities.Car;
+import model.entities.Unit;
 import model.services.CarService;
+import model.services.UnitService;
 import model.services.UserService;
 import state.AuthState;
+import utils.Alerts;
 import utils.Loader;
 
 public class MenuController implements Initializable {
 
     private CarService carService;
+    private UnitService unitService;
     private Loader loader;
     @FXML
     private TableView<Car> tableViewCar;
@@ -72,6 +75,12 @@ public class MenuController implements Initializable {
     @FXML
     private CheckBox vidroEletrico;
 
+    @FXML
+    private Label LbSelectUni;
+
+    @FXML
+    private ChoiceBox<String> CbUnidades;
+
     private ObservableList<Car> obsList;
 
     @FXML
@@ -118,12 +127,20 @@ public class MenuController implements Initializable {
     }
 
     public void updateTableView(boolean tipoPremium) {
-        if (carService == null) {
+        if (carService == null || unitService == null) {
             throw new IllegalStateException("Service was null");
         }
-        List<Car> list = carService.findAll(tipoPremium);
-        obsList = FXCollections.observableArrayList(list);
+        List<Car> listCar = carService.findAll(tipoPremium);
+        List<Unit> listUnit = unitService.findAll();
+
+        obsList = FXCollections.observableArrayList(listCar);
         tableViewCar.setItems(obsList);
+
+        List<String> unitNames = new ArrayList<>();
+        listUnit.forEach(item -> unitNames.add(item.getName()));
+
+        ObservableList<String> obsListUnit = FXCollections.observableArrayList(unitNames);
+        CbUnidades.setItems(obsListUnit);
     }
 
     @FXML
@@ -165,14 +182,28 @@ public class MenuController implements Initializable {
             carroComFiltro.setVidroEletrico(true);
         }
 
+        if (CbUnidades.getValue() == null) {
+            Alerts.showAlert("Unidade não selecionada", "Unidade", "Por favor, selecione uma unidade",
+                    Alert.AlertType.WARNING);
+            return;
+        }
+
+        Unit unit = new Unit();
+        unit.setName(CbUnidades.getValue());
+        carroComFiltro.setUnit(unit);
+
         List<Car> list = carService.findCondition(carroComFiltro);
         obsList = FXCollections.observableArrayList(list);
         tableViewCar.setItems(obsList);
     }
 
 
-    public void setService(CarService carService) {
+    public void setCarService(CarService carService) {
         this.carService = carService;
+    }
+
+    public void setUnitService(UnitService unitService) {
+        this.unitService = unitService;
     }
 
     @FXML
