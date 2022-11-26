@@ -34,7 +34,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="43.0" layoutY="338.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="121.0" style="-fx-background-color: #149cd4;" text="Cadastrar-se" textFill="WHITE">
+            <Button layoutX="43.0" layoutY="338.0" mnemonicParsing="false" onAction="#handleClickCreateUser" prefHeight="32.0" prefWidth="121.0" style="-fx-background-color: #149cd4;" text="Cadastrar-se" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>

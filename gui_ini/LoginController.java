@@ -1,5 +1,6 @@
 package gui_ini;
 
+import gui_cadastros.CadastroUsuarioController;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 
@@ -64,8 +65,20 @@ public class LoginController implements Initializable {
         }
     }
 
+    @FXML
+    void handleClickCreateUser() {
+        loader.loadView("../gui_cadastros/cadUs.fxml", (CadastroUsuarioController cadastroUsuarioController) -> {
+            cadastroUsuarioController.setUserService(new UserService());
+        });
+    }
+
     public void setService(UserService userServiceNovo) {
         this.userService = userServiceNovo;
+    }
+
+    public void showAlertUserCreate() {
+        Alerts.showAlert("Usuário cadastrado", "Usuário", "Usuário cadstrado com sucesso",
+                AlertType.CONFIRMATION);
     }
 
 }

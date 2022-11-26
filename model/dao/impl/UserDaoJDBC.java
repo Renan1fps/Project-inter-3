@@ -15,7 +15,7 @@ import model.entities.User;
 
 public class UserDaoJDBC implements UserDao {
 
-	private Connection conn;
+	private final Connection conn;
 
 	public UserDaoJDBC(Connection conn) {
 		this.conn = conn;
@@ -25,12 +25,15 @@ public class UserDaoJDBC implements UserDao {
 	public void insert(User obj) {
 		PreparedStatement st = null;
 		try {
-			st = conn.prepareStatement("INSERT INTO tb_user " + "(name, email, cpf) " + "VALUES " + "(?, ?, ?)",
+			st = conn.prepareStatement("INSERT INTO tb_user " + "(name, email, cpf, phone, nacionalidade, password) " + "VALUES " + "(?, ?, ?, ?, ?, ?)",
 					Statement.RETURN_GENERATED_KEYS);
 
 			st.setString(1, obj.getName());
 			st.setString(2, obj.getEmail());
 			st.setString(3, obj.getCpf());
+			st.setString(4, obj.getPhone());
+			st.setString(5, obj.getNacionalidade());
+			st.setString(6, obj.getPassowrd());
 
 			int rowsAffected = st.executeUpdate();
 
