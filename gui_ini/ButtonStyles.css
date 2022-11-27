@@ -1,0 +1,18 @@
+#my-button {
+    -fx-border-width: 2;
+    -fx-text-fill: white;
+    -fx-background-color: #149cd4;
+    -fx-background-radius: 3;
+    -fx-font: 12 arial;
+   -fx-cursor: hand;
+
+}
+
+#my-button:hover {
+    -fx-background-color: #9baebc;
+    -fx-text-fill: white;
+}
+
+#my-button:pressed {
+    -fx-background-color: #FFDAB9; /* maybe some other color */
+}

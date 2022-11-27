@@ -3,9 +3,9 @@ package gui_user;
 import gui_ini.LoginController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import model.entities.User;
-import model.services.CarService;
 import model.services.UserService;
 import state.AuthState;
 import utils.Loader;
@@ -33,6 +33,9 @@ public class PerUsuController implements Initializable {
 
     @FXML
     private TextField telefoneUser;
+
+    @FXML
+    private CheckBox CbIsAdmin;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -63,7 +66,7 @@ public class PerUsuController implements Initializable {
 
     public void updateView() {
 
-        if(!AuthState.isAuthenticated()){
+        if (!AuthState.isAuthenticated()) {
             loader.loadView("/gui_ini/login.fxml", (LoginController loginController) -> {
                 loginController.setService(new UserService());
             });
@@ -72,6 +75,10 @@ public class PerUsuController implements Initializable {
 
         if (userService == null) {
             throw new IllegalStateException("Service was null");
+        }
+
+        if (!AuthState.getUserLogged().isIs_adm()) {
+            CbIsAdmin.setDisable(true);
         }
 
         User user = userService.findByEmail(AuthState.getUserLogged().getEmail());

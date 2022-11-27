@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 
 import gui_user.PerUsuController;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -50,6 +51,9 @@ public class MenuController implements Initializable {
 
     @FXML
     private TableColumn<Car, Boolean> tableColumnVidroEletrico;
+
+    @FXML
+    private TableColumn<Car, Car> tableColumnEDIT;
 
     @FXML
     private CheckBox ArCondicionado;
@@ -123,7 +127,6 @@ public class MenuController implements Initializable {
         tableColumnAno.setCellValueFactory(new PropertyValueFactory<>("ano"));
         tableColumnPlaca.setCellValueFactory(new PropertyValueFactory<>("placa"));
         tableColumnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
-        tableColumnVidroEletrico.setCellValueFactory(new PropertyValueFactory<>("vidroEletrico"));
     }
 
     public void updateTableView(boolean tipoPremium) {
@@ -140,6 +143,7 @@ public class MenuController implements Initializable {
         listUnit.forEach(item -> unitNames.add(item.getName()));
 
         ObservableList<String> obsListUnit = FXCollections.observableArrayList(unitNames);
+        initEditButtons();
         CbUnidades.setItems(obsListUnit);
     }
 
@@ -218,5 +222,33 @@ public class MenuController implements Initializable {
             loader.loadView("../gui_user/LocaUsu.fxml", (x -> {
             }));
         }
+    }
+
+    private void initEditButtons() {
+        tableColumnEDIT.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+        tableColumnEDIT.setCellFactory(param -> new TableCell<Car, Car>() {
+            private final Button button = new Button("Detalhes");
+
+
+            @Override
+            protected void updateItem(Car obj, boolean empty) {
+                super.updateItem(obj, empty);
+                if (obj == null) {
+                    setGraphic(null);
+                    return;
+                }
+                setGraphic(button);
+                button.setOnAction(
+                        event -> {
+                            if (!AuthState.isAuthenticated()) {
+                                System.out.println("Opaaaaa, não está auth hein fafadinho");
+                            }
+                            loader.loadView("../gui_user/locarVei.fxml", (x -> {
+                            }));
+                        });
+                button.setId("my-button");
+                button.getStylesheets().add(getClass().getResource("ButtonStyles.css").toExternalForm());
+            }
+        });
     }
 }

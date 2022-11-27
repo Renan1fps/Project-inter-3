@@ -20,7 +20,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <ScrollPane prefHeight="700.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui_ini.MenuController">
    <content>
       <AnchorPane id="AnchorPane" prefHeight="758.0" prefWidth="1028.0" style="-fx-background-color: WHITE;">
@@ -126,7 +125,7 @@
                                                 </CheckBox>
                                              </children>
                                           </GridPane>
-                                          <Button layoutX="64.0" layoutY="432.0" mnemonicParsing="false" onAction="#findCondition" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: black;" text="Filtrar" textFill="WHITE" AnchorPane.bottomAnchor="207.0">
+                                          <Button layoutX="64.0" layoutY="517.0" mnemonicParsing="false" onAction="#findCondition" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: black;" text="Filtrar" textFill="WHITE" AnchorPane.bottomAnchor="122.0">
                                              <padding>
                                                 <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                                              </padding>
@@ -145,6 +144,16 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
+                                          <ChoiceBox fx:id="CbUnidades" layoutX="14.0" layoutY="421.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="162.0" style="-fx-background-color: #f2ecff; -fx-text-align: left;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ChoiceBox>
+                                          <Label fx:id="LbSelectUni" layoutX="38.0" layoutY="431.0" prefHeight="16.0" prefWidth="52.0" text="Unidade" textFill="#797878">
+                                             <font>
+                                                <Font name="Arial Bold" size="13.0" />
+                                             </font>
+                                          </Label>
                                        </children>
                                     </AnchorPane>
                                 </items>
@@ -165,9 +174,7 @@
                                                 <TableColumn fx:id="tableColumnAno" prefWidth="76.0" text="Ano" />
                                                 <TableColumn fx:id="tableColumnPlaca" prefWidth="61.0" text="Placa" />
                                                 <TableColumn fx:id="tableColumnValor" prefWidth="73.0" text="Valor" />
-                                                <TableColumn fx:id="tableColumnVidroEletrico" prefWidth="107.0" text="Vidro eletrico" />
-                                                <TableColumn fx:id="tableColumnMarca11111" prefWidth="98.0" text="Cambio auto." />
-                                                <TableColumn fx:id="tableColumnMarca111111" prefWidth="127.0" text="Ar condicionado" />
+                                                <TableColumn fx:id="tableColumnEDIT" prefWidth="75.0" />
                                             </columns>
                                           </TableView>
                                           <Label layoutX="332.0" layoutY="627.0" text="Locafacil ©2022">
@@ -218,16 +225,6 @@
                   </Button>
                </children>
             </Pane>
-            <ChoiceBox fx:id="CbUnidades" layoutX="533.0" layoutY="23.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="162.0" style="-fx-background-color: #f2ecff; -fx-text-align: left;">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ChoiceBox>
-            <Label fx:id="LbSelectUni" layoutX="556.0" layoutY="33.0" prefHeight="16.0" prefWidth="52.0" text="Unidade" textFill="#797878">
-               <font>
-                  <Font name="Arial Bold" size="13.0" />
-               </font>
-            </Label>
          </children>
          <padding>
             <Insets bottom="70.0" />
