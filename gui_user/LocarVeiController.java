@@ -1,63 +1,169 @@
 package gui_user;
 
-import application.Main;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
+import gui_ini.MenuController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
 import model.entities.Car;
 import model.services.CarService;
+import model.services.UnitService;
+import state.AuthState;
 import utils.Loader;
 
 import java.net.URL;
-import java.util.List;
+
 import java.util.ResourceBundle;
 
 public class LocarVeiController implements Initializable {
 
-	private CarService carService;
-	private Loader loader;
+    private CarService carService;
+    private Loader loader;
 
+    @FXML
+    private CheckBox CB_arCondicionado;
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		initializeNodes();
-		loader = Loader.getLoaderInstance();
+    @FXML
+    private CheckBox CB_cambioAutomatico;
 
-	}
+    @FXML
+    private CheckBox CB_direcaoHidraulica;
 
-	private void initializeNodes() {
-//		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-//		tableColumnMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
-//		tableColumnModelo.setCellValueFactory(new PropertyValueFactory<>("modelo"));
-//
-//		Stage stage = (Stage) Main.getMainScene().getWindow();
-//		tableViewCar.prefHeightProperty().bind(stage.heightProperty());
-//		 Car carro =  tableViewCar.getSelectionModel().getSelectedItem();
-//		if(carro != null){
-//			loader.loadView("/gui_ini/locarVei.fxml", (MenuController menuController);
-//		}
-	}
+    @FXML
+    private CheckBox CB_freioABS;
 
-	public void getCar() {
-		if (carService == null) {
-			throw new IllegalStateException("Service was null");
-		}
-		System.out.println("Aqui");
-//		Car car = carService.f;
-//		obsList = FXCollections.observableArrayList(list);
-//		tableViewCar.setItems(obsList);
-	}
+    @FXML
+    private CheckBox CB_portaMalaGrande;
 
+    @FXML
+    private CheckBox CB_premium;
 
+    @FXML
+    private CheckBox CB_quatroPortas;
 
+    @FXML
+    private CheckBox CB_vidroEletrico;
 
-	public void setService(CarService carService) {
-		this.carService = carService;
-	}
+    @FXML
+    private TextField Txb_Modelo;
+
+    @FXML
+    private TextField Txb_ano;
+
+    @FXML
+    private TextField Txb_cor;
+
+    @FXML
+    private TextField Txb_placa;
+
+    @FXML
+    private TextField Txb_unidade;
+
+    @FXML
+    private TextField Txb_valor;
+
+    @FXML
+    private Button BTN_actionFinal;
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        initializeNodes();
+        loader = Loader.getLoaderInstance();
+
+    }
+
+    private void initializeNodes() {
+    }
+
+    public void updateView(Car car) {
+        this.setFieldsText(car);
+        this.setCheckBox(car);
+
+        if (!AuthState.isAuthenticated() || !AuthState.getUserLogged().isIs_adm()) {
+            this.disableFields();
+        } else {
+            BTN_actionFinal.setText("Atualizar");
+        }
+    }
+
+    private void setFieldsText(Car car) {
+        Txb_Modelo.setText(car.getModelo());
+        Txb_ano.setText(String.valueOf(car.getAno()));
+        Txb_cor.setText(car.getCor());
+        Txb_placa.setText(car.getPlaca());
+        Txb_valor.setText(String.valueOf(car.getValor()));
+        //Txb_unidade.setText(car.getUnit().getName()); TODO
+
+    }
+
+    private void disableFields() {
+        Txb_Modelo.setDisable(true);
+        Txb_ano.setDisable(true);
+        Txb_cor.setDisable(true);
+        Txb_placa.setDisable(true);
+        Txb_valor.setDisable(true);
+        Txb_unidade.setDisable(true);
+
+        CB_arCondicionado.setDisable(true);
+        CB_cambioAutomatico.setDisable(true);
+        CB_direcaoHidraulica.setDisable(true);
+        CB_freioABS.setDisable(true);
+        CB_portaMalaGrande.setDisable(true);
+        CB_premium.setDisable(true);
+        CB_quatroPortas.setDisable(true);
+        CB_vidroEletrico.setDisable(true);
+
+        BTN_actionFinal.setText("Alugar agora");
+    }
+
+    private void setCheckBox(Car car) {
+        CB_arCondicionado.setSelected(car.getArCondicionado());
+        CB_cambioAutomatico.setSelected(car.getCambioAutomatico());
+        CB_direcaoHidraulica.setSelected(car.getDirecaoHidrauliaca());
+        CB_freioABS.setSelected(car.getFreioAbs());
+        CB_portaMalaGrande.setSelected(car.getPortaMalaGrande());
+        CB_premium.setSelected(car.getPremium());
+        CB_quatroPortas.setSelected(car.getQuatroPortas());
+        CB_vidroEletrico.setSelected(car.getVidroEletrico());
+    }
+
+    private void updateCar(int id) {
+        if (carService == null) {
+            throw new IllegalStateException("Service was null");
+        }
+
+        Car carToUpdate = this.generateCar(id);
+        this.carService.update(carToUpdate);
+        loader.loadView("/gui_ini/tabelasCarros.fxml", (MenuController menuController) -> {
+            menuController.setCarService(new CarService());
+            menuController.setUnitService(new UnitService());
+            menuController.updateTableView(true);
+        });
+    }
+
+    private Car generateCar(int id){
+        String modelo = Txb_Modelo.getText();
+        int ano = Integer.parseInt(Txb_ano.getText());
+        String cor = Txb_cor.getText();
+        String placa = Txb_placa.getText();
+        int valor = Integer.parseInt(Txb_valor.getText());
+
+        boolean arCondicionado = CB_arCondicionado.isSelected();
+        boolean cambioAutomatico = CB_cambioAutomatico.isSelected();
+        boolean direcaoHidraulica = CB_direcaoHidraulica.isSelected();
+        boolean freioABS = CB_freioABS.isSelected();
+        boolean portaMalaGrande = CB_portaMalaGrande.isSelected();
+        boolean premium = CB_premium.isSelected();
+        boolean quatroPortas = CB_quatroPortas.isSelected();
+        boolean vidroEletrico = CB_vidroEletrico.isSelected();
+
+        return  new Car(id,modelo, ano, cor, placa, valor,vidroEletrico,cambioAutomatico,arCondicionado,freioABS,quatroPortas,direcaoHidraulica,portaMalaGrande,premium  );
+    }
+
+    public void setService(CarService carService) {
+        this.carService = carService;
+    }
 
 }

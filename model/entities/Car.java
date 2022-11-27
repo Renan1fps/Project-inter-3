@@ -10,6 +10,7 @@ public class Car implements Serializable {
 
     private int id;
     private String modelo;
+    private String placa;
     private int ano;
     private String cor;
     private double valor;
@@ -26,7 +27,7 @@ public class Car implements Serializable {
     public Car() {
     }
 
-    public Car(int id, String marca, String modelo, int ano, String cor, double valor, boolean vidroEletrico,
+    public Car(int id, String modelo, int ano, String cor, String placa, double valor, boolean vidroEletrico,
                boolean cambioAutomatico, boolean arCondicionado, boolean freioAbs, boolean quatroPortas,
                boolean direcaoHidrauliaca, boolean portaMalaGrande, boolean premium) {
         this.id = id;
@@ -42,6 +43,7 @@ public class Car implements Serializable {
         this.direcaoHidrauliaca = direcaoHidrauliaca;
         this.portaMalaGrande = portaMalaGrande;
         this.premium = premium;
+        this.placa = placa;
     }
 
     public int getId() {
@@ -146,6 +148,14 @@ public class Car implements Serializable {
 
     public void setPremium(boolean premium) {
         this.premium = premium;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 
     public Unit getUnit() {

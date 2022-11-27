@@ -181,6 +181,7 @@ public class CarDaoJDBC implements CarDao {
     private Car instantiateCar(ResultSet rs) throws SQLException {
         Car obj = new Car();
         obj.setId(rs.getInt("id_car"));
+        obj.setPlaca(rs.getString("placa"));
         obj.setModelo(rs.getString("modelo"));
         obj.setAno(rs.getInt("ano"));
         obj.setCor(rs.getString("cor"));

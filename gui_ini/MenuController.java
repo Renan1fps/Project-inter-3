@@ -3,9 +3,11 @@ package gui_ini;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 
+import gui_user.LocarVeiController;
 import gui_user.PerUsuController;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -239,15 +241,12 @@ public class MenuController implements Initializable {
                 }
                 setGraphic(button);
                 button.setOnAction(
-                        event -> {
-                            if (!AuthState.isAuthenticated()) {
-                                System.out.println("Opaaaaa, não está auth hein fafadinho");
-                            }
-                            loader.loadView("../gui_user/locarVei.fxml", (x -> {
-                            }));
-                        });
+                        event -> loader.loadView("../gui_user/locarVei.fxml", (LocarVeiController locarVeiController) -> {
+                            locarVeiController.setService(new CarService());
+                            locarVeiController.updateView(obj);
+                        }));
                 button.setId("my-button");
-                button.getStylesheets().add(getClass().getResource("ButtonStyles.css").toExternalForm());
+                button.getStylesheets().add(Objects.requireNonNull(getClass().getResource("ButtonStyles.css")).toExternalForm());
             }
         });
     }
