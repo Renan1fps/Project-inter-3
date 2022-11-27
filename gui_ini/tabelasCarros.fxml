@@ -199,22 +199,6 @@
                         <Image url="@../images/logo_transparent_background.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="778.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickWhoWeAre" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Quem somos" textFill="#797878">
-                     <font>
-                        <Font name="Arial Bold" size="13.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button layoutX="707.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickInit" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Inicio" textFill="#797878">
-                     <font>
-                        <Font name="Arial Bold" size="13.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
                   <Button layoutX="900.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickServices" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Serviços" textFill="#797878">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
@@ -225,6 +209,30 @@
                   </Button>
                </children>
             </Pane>
+            <Button fx:id="BTN_usuarios" layoutX="629.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleClickUser" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Usuários" textFill="#797878">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="725.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleClickInit" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Inicio" textFill="#797878">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="789.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleClickWhoWeAre" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Quem somos" textFill="#797878">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
          <padding>
             <Insets bottom="70.0" />

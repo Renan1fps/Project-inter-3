@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import model.services.CarService;
 import model.services.UnitService;
@@ -22,6 +23,15 @@ public class MainController implements Initializable {
 
     @FXML
     private MenuItem menuItemAbout;
+
+    @FXML
+    private Button BTN_inicio;
+
+    @FXML
+    private Button BTN_quemSomos;
+
+    @FXML
+    private Button BTN_servicos;
 
     @FXML
     public void handleClickNavigate() {
@@ -48,5 +58,4 @@ public class MainController implements Initializable {
     public void initialize(URL uri, ResourceBundle rb) {
         loader = Loader.getLoaderInstance();
     }
-
 }

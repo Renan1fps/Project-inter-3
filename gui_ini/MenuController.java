@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 
+import gui_adm.ListUserController;
 import gui_user.LocarVeiController;
 import gui_user.PerUsuController;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -52,9 +53,6 @@ public class MenuController implements Initializable {
     private TableColumn<Car, Double> tableColumnValor;
 
     @FXML
-    private TableColumn<Car, Boolean> tableColumnVidroEletrico;
-
-    @FXML
     private TableColumn<Car, Car> tableColumnEDIT;
 
     @FXML
@@ -82,7 +80,7 @@ public class MenuController implements Initializable {
     private CheckBox vidroEletrico;
 
     @FXML
-    private Label LbSelectUni;
+    private Button BTN_usuarios;
 
     @FXML
     private ChoiceBox<String> CbUnidades;
@@ -115,8 +113,17 @@ public class MenuController implements Initializable {
         });
     }
 
+    @FXML
+    public void handleClickUser() {
+        loader.loadView("../gui_adm/listUsu.fxml", (ListUserController listUserController)-> {
+            listUserController.setCarService(new UserService());
+            listUserController.updateTableView();
+        });
+    }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        this.hiddenButtons();
         initializeNodes();
         loader = Loader.getLoaderInstance();
 
@@ -132,6 +139,7 @@ public class MenuController implements Initializable {
     }
 
     public void updateTableView(boolean tipoPremium) {
+
         if (carService == null || unitService == null) {
             throw new IllegalStateException("Service was null");
         }
@@ -249,5 +257,11 @@ public class MenuController implements Initializable {
                 button.getStylesheets().add(Objects.requireNonNull(getClass().getResource("ButtonStyles.css")).toExternalForm());
             }
         });
+    }
+
+    private void hiddenButtons() {
+        if (!AuthState.isAuthenticated() || !AuthState.getUserLogged().isIs_adm()) {
+            BTN_usuarios.setVisible(false);
+        }
     }
 }

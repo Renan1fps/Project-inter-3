@@ -120,6 +120,7 @@ public class UserDaoJDBC implements UserDao {
 		obj.setPhone(rs.getString("phone"));
 		obj.setNacionalidade(rs.getString("nacionalidade"));
 		obj.setIs_adm(rs.getBoolean("is_admin"));
+		obj.setPassowrd(rs.getString("password"));
 		return obj;
 	}
 

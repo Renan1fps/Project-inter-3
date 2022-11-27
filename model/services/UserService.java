@@ -8,7 +8,7 @@ import model.entities.User;
 
 public class UserService {
 
-	private UserDao dao = DaoFactory.createUserDao();
+	private final UserDao dao = DaoFactory.createUserDao();
 	
 	public List<User> findAll() {
 		return dao.findAll();

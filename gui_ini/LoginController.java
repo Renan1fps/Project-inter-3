@@ -5,12 +5,15 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import model.entities.User;
+import model.services.CarService;
+import model.services.UnitService;
 import model.services.UserService;
 import state.AuthState;
 import utils.Alerts;
@@ -54,12 +57,23 @@ public class LoginController implements Initializable {
             if (user == null) {
                 Alerts.showAlert("Usuário não encontrado", "Usuário", "Usuário não encontrado na base de dados",
                         AlertType.ERROR);
-            } else {
-                AuthState.setIsAuthenticated();
-                AuthState.setUser(user);
-                loader.loadView("/gui_ini/tabelasCarros.fxml", (x -> {
-                }));
+                return;
             }
+
+            if (!Objects.equals(TXT_senha.getText(), user.getPassowrd())) {
+                Alerts.showAlert("Senha incorreta", "Senha", "Senha incorreta, tente novamente!",
+                        AlertType.ERROR);
+                return;
+            }
+
+            AuthState.setIsAuthenticated();
+            AuthState.setUser(user);
+            loader.loadView("/gui_ini/tabelasCarros.fxml", (MenuController menuController) -> {
+                menuController.setCarService(new CarService());
+                menuController.setUnitService(new UnitService());
+                menuController.updateTableView(true);
+            });
+
         } catch (Exception e) {
             e.printStackTrace();
         }
