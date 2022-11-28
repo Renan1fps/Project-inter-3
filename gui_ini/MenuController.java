@@ -264,4 +264,9 @@ public class MenuController implements Initializable {
             BTN_usuarios.setVisible(false);
         }
     }
+
+    public void showSuccessMessage(String message, String title, String action){
+        Alerts.showAlert(title, action, message,
+                Alert.AlertType.CONFIRMATION);
+    }
 }

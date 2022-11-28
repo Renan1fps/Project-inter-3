@@ -64,6 +64,46 @@ public class CarDaoJDBC implements CarDao {
     @Override
     public void update(Car obj) {
 
+        PreparedStatement st = null;
+
+        try {
+            st = conn.prepareStatement("UPDATE  tb_car SET \n" +
+                    " modelo = ?, \n" +
+                    " ano = ?, \n" +
+                    " cor = ?, \n" +
+                    " valor = ?, \n" +
+                    " vidro_eletrico = ?, \n" +
+                    " cambio_automatico = ?, \n" +
+                    " ar_condicionado = ?, \n" +
+                    " freio_abs = ?, \n" +
+                    " quatro_portas = ?, \n" +
+                    " direcao_hidraulica = ?, \n" +
+                    " porta_mala_grande = ?, \n" +
+                    " premium = ? \n" +
+                    "WHERE id_car = ?;"
+            );
+
+            st.setString(1, obj.getModelo());
+            st.setInt(2, obj.getAno());
+            st.setString(3, obj.getCor());
+            st.setDouble(4, obj.getValor());
+            st.setBoolean(5, obj.getVidroEletrico());
+            st.setBoolean(6, obj.getCambioAutomatico());
+            st.setBoolean(7, obj.getArCondicionado());
+            st.setBoolean(8, obj.getFreioAbs());
+            st.setBoolean(9, obj.getQuatroPortas());
+            st.setBoolean(10, obj.getDirecaoHidrauliaca());
+            st.setBoolean(11, obj.getPortaMalaGrande());
+            st.setBoolean(12, obj.getPremium());
+            st.setInt(13, obj.getId());
+
+            st.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        } finally {
+            Provider.closeStatement(st);
+        }
     }
 
     @Override
@@ -92,40 +132,40 @@ public class CarDaoJDBC implements CarDao {
             String query = "SELECT tc.* FROM tb_car tc inner join tb_unit tu ON tu.id_unit = tc.id_unit where tc.disponivel = 1";
             //String query = "SELECT * FROM tb_car where disponivel = 1";
 
-            if(obj.getVidroEletrico()){
+            if (obj.getVidroEletrico()) {
                 query += " and tc.vidro_eletrico = 1";
             }
 
-            if(obj.getCambioAutomatico()){
+            if (obj.getCambioAutomatico()) {
                 query += " and tc.cambio_automatico = 1";
             }
 
-            if(obj.getArCondicionado()){
+            if (obj.getArCondicionado()) {
                 query += " and tc.ar_condicionado = 1";
             }
 
-            if(obj.getFreioAbs()){
+            if (obj.getFreioAbs()) {
                 query += " and tc.freio_abs = 1";
             }
 
-            if(obj.getQuatroPortas()){
+            if (obj.getQuatroPortas()) {
                 query += " and tc.quatro_portas = 1";
             }
 
-            if(obj.getDirecaoHidrauliaca()){
+            if (obj.getDirecaoHidrauliaca()) {
                 query += " and tc.direcao_hidraulica = 1";
             }
 
-            if(obj.getPortaMalaGrande()){
+            if (obj.getPortaMalaGrande()) {
                 query += " and tc.porta_mala_grande = 1";
             }
 
-            if(obj.getPremium()){
+            if (obj.getPremium()) {
                 query += " and tc.premium = 1";
             }
 
-            if(obj.getUnit().getName() != null){
-                query += " and tu.name = " + '"' + obj.getUnit().getName() + '"' ;
+            if (obj.getUnit().getName() != null) {
+                query += " and tu.name = " + '"' + obj.getUnit().getName() + '"';
             }
 
             System.out.println();

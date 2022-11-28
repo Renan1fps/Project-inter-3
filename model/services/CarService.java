@@ -9,34 +9,34 @@ import utils.SearchParams;
 
 public class CarService implements CarDao {
 
-	private final CarDao dao = DaoFactory.createCarDao();
+    private final CarDao dao = DaoFactory.createCarDao();
 
-	@Override
-	public void insert(Car obj) {
+    @Override
+    public void insert(Car obj) {
 
-	}
+    }
 
-	@Override
-	public void update(Car obj) {
+    @Override
+    public void update(Car obj) {
+        dao.update(obj);
+    }
 
-	}
+    @Override
+    public void deleteById(int id) {
 
-	@Override
-	public void deleteById(int id) {
+    }
 
-	}
+    @Override
+    public List<Car> findCondition(Car obj) {
+        return dao.findCondition(obj);
+    }
 
-	@Override
-	public List<Car> findCondition(Car obj) {
-		return dao.findCondition(obj);
-	}
+    public List<Car> findAll(boolean tipoPremium) {
+        return dao.findAll(tipoPremium);
+    }
 
-	public List<Car> findAll(boolean tipoPremium) {
-		return dao.findAll(tipoPremium);
-	}
-
-	@Override
-	public List<Car> finOne() {
-		return dao.finOne();
-	}
+    @Override
+    public List<Car> finOne() {
+        return dao.finOne();
+    }
 }

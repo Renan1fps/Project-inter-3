@@ -19,32 +19,16 @@
                   <Image url="@../images/logo_transparent_background.png" />
                </image>
             </ImageView>
-            <Button fx:id="BTN_quemSomos" layoutX="729.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickWhoWeAre" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Quem somos" textFill="#797878">
-               <font>
-                  <Font name="Arial Bold" size="13.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="BTN_servicos" layoutX="829.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickServices" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Serviços" textFill="#797878">
-               <font>
-                  <Font name="Arial Bold" size="13.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
          </children>
       </Pane>
       <Pane layoutX="5.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f2ecff;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="80.0">
          <children>
-            <Label layoutX="383.0" layoutY="263.0" text="LocaFacil">
+            <Label layoutX="430.0" layoutY="261.0" text="LocaFacil">
                <font>
                   <Font name="Arial" size="36.0" />
                </font>
             </Label>
-            <Button layoutX="398.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleClickNavigate" style="-fx-background-color: BLACK; -fx-background-radius: 5;" text="Navegar" textFill="WHITE">
+            <Button layoutX="445.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleClickNavigate" style="-fx-background-color: BLACK; -fx-background-radius: 5;" text="Navegar" textFill="WHITE">
                <padding>
                   <Insets bottom="5.0" left="40.0" right="40.0" top="5.0" />
                </padding>
@@ -54,7 +38,23 @@
             </Button>
          </children>
       </Pane>
-      <Button fx:id="BTN_inicio" layoutX="677.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Inicio" textFill="#797878">
+      <Button fx:id="BTN_inicio" layoutX="733.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Inicio" textFill="#797878">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="BTN_servicos" layoutX="910.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleClickServices" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Serviços" textFill="#797878">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="BTN_quemSomos" layoutX="801.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleClickWhoWeAre" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Quem somos" textFill="#797878">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>

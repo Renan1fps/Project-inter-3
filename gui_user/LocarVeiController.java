@@ -1,6 +1,7 @@
 package gui_user;
 
 
+import gui_adm.ListUserController;
 import gui_ini.MenuController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,6 +11,7 @@ import javafx.scene.control.TextField;
 import model.entities.Car;
 import model.services.CarService;
 import model.services.UnitService;
+import model.services.UserService;
 import state.AuthState;
 import utils.Loader;
 
@@ -21,6 +23,7 @@ public class LocarVeiController implements Initializable {
 
     private CarService carService;
     private Loader loader;
+    private int idCar;
 
     @FXML
     private CheckBox CB_arCondicionado;
@@ -67,19 +70,71 @@ public class LocarVeiController implements Initializable {
     @FXML
     private Button BTN_actionFinal;
 
+    @FXML
+    private Button BTN_usuarios;
+
+    @FXML
+    private Button BTN_simulate;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        initializeNodes();
-        loader = Loader.getLoaderInstance();
-
+        this.hiddenButtons();
+        this.loader = Loader.getLoaderInstance();
     }
 
-    private void initializeNodes() {
+    @FXML
+    public void handleClickWhoWeAre() {
+        loader.loadView("../gui_ini/quemSomos.fxml", (x -> {
+        }));
+    }
+
+    @FXML
+    public void handleClickInit() {
+        loader.loadView("../gui_ini/inicio.fxml", (x -> {
+        }));
+    }
+
+    @FXML
+    public void handleClickServices() {
+        loader.loadView("../gui_ini/servicos.fxml", (x -> {
+        }));
+    }
+
+    @FXML
+    public void handleClickBack() {
+        loader.loadView("../gui_ini/tabelasCarros.fxml", (MenuController menuController) -> {
+            menuController.setCarService(new CarService());
+            menuController.setUnitService(new UnitService());
+            menuController.updateTableView(true);
+        });
+    }
+
+    @FXML
+    public void handleClickUser() {
+        loader.loadView("../gui_adm/listUsu.fxml", (ListUserController listUserController)-> {
+            listUserController.setCarService(new UserService());
+            listUserController.updateTableView();
+        });
+    }
+
+    @FXML
+    private void handleClickAction() {
+        if (AuthState.isAuthenticated() && AuthState.getUserLogged().isIs_adm()) {
+            this.updateCar(this.idCar);
+        } else {
+            BTN_actionFinal.setText("Atualizar");
+        }
     }
 
     public void updateView(Car car) {
         this.setFieldsText(car);
         this.setCheckBox(car);
+
+        this.idCar = car.getId();
+
+        if (AuthState.isAuthenticated() && AuthState.getUserLogged().isIs_adm()) {
+            BTN_simulate.setDisable(true);
+        }
 
         if (!AuthState.isAuthenticated() || !AuthState.getUserLogged().isIs_adm()) {
             this.disableFields();
@@ -99,6 +154,7 @@ public class LocarVeiController implements Initializable {
     }
 
     private void disableFields() {
+
         Txb_Modelo.setDisable(true);
         Txb_ano.setDisable(true);
         Txb_cor.setDisable(true);
@@ -140,15 +196,16 @@ public class LocarVeiController implements Initializable {
             menuController.setCarService(new CarService());
             menuController.setUnitService(new UnitService());
             menuController.updateTableView(true);
+            menuController.showSuccessMessage("Carro atualizado com sucesso", "Carro atualizado", "Atualização");
         });
     }
 
-    private Car generateCar(int id){
+    private Car generateCar(int id) {
         String modelo = Txb_Modelo.getText();
         int ano = Integer.parseInt(Txb_ano.getText());
         String cor = Txb_cor.getText();
         String placa = Txb_placa.getText();
-        int valor = Integer.parseInt(Txb_valor.getText());
+        int valor = (int) Double.parseDouble(Txb_valor.getText());
 
         boolean arCondicionado = CB_arCondicionado.isSelected();
         boolean cambioAutomatico = CB_cambioAutomatico.isSelected();
@@ -159,11 +216,17 @@ public class LocarVeiController implements Initializable {
         boolean quatroPortas = CB_quatroPortas.isSelected();
         boolean vidroEletrico = CB_vidroEletrico.isSelected();
 
-        return  new Car(id,modelo, ano, cor, placa, valor,vidroEletrico,cambioAutomatico,arCondicionado,freioABS,quatroPortas,direcaoHidraulica,portaMalaGrande,premium  );
+        return new Car(id, modelo, ano, cor, placa, valor, vidroEletrico, cambioAutomatico, arCondicionado, freioABS, quatroPortas, direcaoHidraulica, portaMalaGrande, premium);
     }
 
     public void setService(CarService carService) {
         this.carService = carService;
+    }
+
+    private void hiddenButtons() {
+        if (!AuthState.isAuthenticated() || !AuthState.getUserLogged().isIs_adm()) {
+            BTN_usuarios.setVisible(false);
+        }
     }
 
 }

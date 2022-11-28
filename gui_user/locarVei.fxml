@@ -21,20 +21,29 @@
                   <Image url="@../images/logo_transparent_background.png" />
                </image>
             </ImageView>
-            <Button layoutX="778.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Quem somos" textFill="#797878">
+            <Button layoutX="778.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickWhoWeAre" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Quem somos" textFill="#797878">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button layoutX="707.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Inicio" textFill="#797878">
+            <Button layoutX="707.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickInit" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Inicio" textFill="#797878">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button layoutX="900.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Serviços" textFill="#797878">
+            <Button layoutX="900.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickServices" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Serviços" textFill="#797878">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </Pane>
@@ -172,7 +181,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </CheckBox>
-            <Button fx:id="BTN_actionFinal" layoutX="665.0" layoutY="506.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="206.0" style="-fx-background-color: #149cd4;" textFill="WHITE">
+            <Button fx:id="BTN_actionFinal" layoutX="665.0" layoutY="506.0" mnemonicParsing="false" onAction="#handleClickAction" prefHeight="58.0" prefWidth="206.0" style="-fx-background-color: #149cd4;" textFill="WHITE">
                <padding>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </padding>
@@ -183,7 +192,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="327.0" layoutY="445.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="181.0" style="-fx-background-color: black;" text="Simluar alocação" textFill="WHITE">
+            <Button fx:id="BTN_simulate" layoutX="327.0" layoutY="445.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="181.0" style="-fx-background-color: black;" text="Simluar alocação" textFill="WHITE">
                <padding>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </padding>
@@ -196,12 +205,20 @@
             </Button>
          </children>
       </Pane>
-      <Button layoutX="74.0" layoutY="527.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="154.0" style="-fx-background-color: black;" text="Voltar" textFill="WHITE">
+      <Button layoutX="74.0" layoutY="527.0" mnemonicParsing="false" onAction="#handleClickBack" prefHeight="35.0" prefWidth="154.0" style="-fx-background-color: black;" text="Voltar" textFill="WHITE">
          <padding>
             <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
          </padding>
          <font>
             <Font name="Arial Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="BTN_usuarios" layoutX="617.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleClickUser" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Usuários" textFill="#797878">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
