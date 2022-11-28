@@ -95,4 +95,8 @@ public class LoginController implements Initializable {
                 AlertType.CONFIRMATION);
     }
 
+    public void showMessage(String title, String header, String content, AlertType type){
+        Alerts.showAlert(title, header, content, type);
+    }
+
 }

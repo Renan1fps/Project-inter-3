@@ -10,6 +10,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import model.entities.Car;
 import model.services.CarService;
+import model.services.LocationService;
 import model.services.UnitService;
 import model.services.UserService;
 import state.AuthState;
@@ -24,6 +25,7 @@ public class LocarVeiController implements Initializable {
     private CarService carService;
     private Loader loader;
     private int idCar;
+    private Car car;
 
     @FXML
     private CheckBox CB_arCondicionado;
@@ -111,7 +113,7 @@ public class LocarVeiController implements Initializable {
 
     @FXML
     public void handleClickUser() {
-        loader.loadView("../gui_adm/listUsu.fxml", (ListUserController listUserController)-> {
+        loader.loadView("../gui_adm/listUsu.fxml", (ListUserController listUserController) -> {
             listUserController.setCarService(new UserService());
             listUserController.updateTableView();
         });
@@ -122,7 +124,11 @@ public class LocarVeiController implements Initializable {
         if (AuthState.isAuthenticated() && AuthState.getUserLogged().isIs_adm()) {
             this.updateCar(this.idCar);
         } else {
-            BTN_actionFinal.setText("Atualizar");
+            loader.loadView("../gui_user/AlugarCarro.fxml", (AlugarCarroController alugarCarro) -> {
+                alugarCarro.setService(new CarService(), new LocationService());
+                alugarCarro.setCar(this.car);
+                alugarCarro.updateView(this.car);
+            });
         }
     }
 
@@ -131,6 +137,7 @@ public class LocarVeiController implements Initializable {
         this.setCheckBox(car);
 
         this.idCar = car.getId();
+        this.car = car;
 
         if (AuthState.isAuthenticated() && AuthState.getUserLogged().isIs_adm()) {
             BTN_simulate.setDisable(true);
@@ -219,9 +226,10 @@ public class LocarVeiController implements Initializable {
         return new Car(id, modelo, ano, cor, placa, valor, vidroEletrico, cambioAutomatico, arCondicionado, freioABS, quatroPortas, direcaoHidraulica, portaMalaGrande, premium);
     }
 
-    public void setService(CarService carService) {
+    public void setService(CarService carService, LocationService locationService) {
         this.carService = carService;
     }
+
 
     private void hiddenButtons() {
         if (!AuthState.isAuthenticated() || !AuthState.getUserLogged().isIs_adm()) {

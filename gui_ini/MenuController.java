@@ -20,6 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.entities.Car;
 import model.entities.Unit;
 import model.services.CarService;
+import model.services.LocationService;
 import model.services.UnitService;
 import model.services.UserService;
 import state.AuthState;
@@ -250,7 +251,7 @@ public class MenuController implements Initializable {
                 setGraphic(button);
                 button.setOnAction(
                         event -> loader.loadView("../gui_user/locarVei.fxml", (LocarVeiController locarVeiController) -> {
-                            locarVeiController.setService(new CarService());
+                            locarVeiController.setService(new CarService(), new LocationService());
                             locarVeiController.updateView(obj);
                         }));
                 button.setId("my-button");

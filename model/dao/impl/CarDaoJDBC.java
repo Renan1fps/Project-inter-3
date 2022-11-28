@@ -4,7 +4,6 @@ import database.DbException;
 import database.Provider;
 import model.dao.CarDao;
 import model.entities.Car;
-import utils.SearchParams;
 
 import java.sql.*;
 import java.util.ArrayList;

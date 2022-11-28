@@ -5,7 +5,6 @@ import java.util.List;
 import model.dao.CarDao;
 import model.dao.DaoFactory;
 import model.entities.Car;
-import utils.SearchParams;
 
 public class CarService implements CarDao {
 

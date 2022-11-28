@@ -1,7 +1,6 @@
 package model.dao;
 
 import model.entities.Car;
-import utils.SearchParams;
 
 import java.util.List;
 
