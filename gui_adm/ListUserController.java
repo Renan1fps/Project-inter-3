@@ -1,5 +1,6 @@
 package gui_adm;
 
+import gui_cadastros.CadastroCarroController;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,6 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.entities.User;
+import model.services.CarService;
+import model.services.UnitService;
 import model.services.UserService;
 import utils.Loader;
 
@@ -20,7 +23,6 @@ public class ListUserController implements Initializable {
 
     private Loader loader;
     private UserService userService;
-    private ObservableList<User> obsList;
 
     @FXML
     private TableView<User> TBV_user;
@@ -52,6 +54,9 @@ public class ListUserController implements Initializable {
     @FXML
     private TableColumn<User, User> tableColumnEDIT;
 
+    @FXML
+    private Button BTN_cadastroCarros;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeNodes();
@@ -71,7 +76,7 @@ public class ListUserController implements Initializable {
         }
 
         List<User> listUser = userService.findAll();
-        obsList = FXCollections.observableArrayList(listUser);
+        ObservableList<User> obsList = FXCollections.observableArrayList(listUser);
         TBV_user.setItems(obsList);
         this.initEditButtons();
     }
@@ -86,6 +91,14 @@ public class ListUserController implements Initializable {
     public void handleClickInit() {
         loader.loadView("../gui_ini/inicio.fxml", (x -> {
         }));
+    }
+
+    @FXML
+    public void handleClickPostCar() {
+        loader.loadView("../gui_cadastros/cadCar.fxml", (CadastroCarroController cadastroCarroController) -> {
+            cadastroCarroController.setService(new CarService(), new UnitService());
+            cadastroCarroController.updateView();
+        });
     }
 
     @FXML

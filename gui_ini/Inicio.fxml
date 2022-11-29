@@ -38,7 +38,7 @@
             </Button>
          </children>
       </Pane>
-      <Button fx:id="BTN_inicio" layoutX="733.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Inicio" textFill="#797878">
+      <Button fx:id="BTN_inicio" layoutX="733.0" layoutY="29.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Início" textFill="#797878">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
@@ -55,6 +55,22 @@
          </cursor>
       </Button>
       <Button fx:id="BTN_quemSomos" layoutX="801.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleClickWhoWeAre" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Quem somos" textFill="#797878">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="BTN_usuarios" layoutX="647.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleClickUser" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Usuários" textFill="#797878">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="BTN_cadastroCarros" layoutX="518.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleClickPostCar" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Cadastar carros" textFill="#797878">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>

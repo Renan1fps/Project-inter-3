@@ -32,7 +32,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="707.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickInit" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Inicio" textFill="#797878">
+            <Button layoutX="707.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickInit" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Início" textFill="#797878">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
@@ -93,7 +93,7 @@
                                        <font>
                                           <Font name="Arial Bold" size="14.0" />
                                        </font></Label>
-                                    <TextField fx:id="TXT_nome" disable="true" layoutX="26.0" layoutY="122.0" prefHeight="25.0" prefWidth="148.0" promptText="Nome usuário">
+                                    <TextField fx:id="TXT_nome" layoutX="26.0" layoutY="122.0" prefHeight="25.0" prefWidth="148.0" promptText="Nome usuário">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -103,7 +103,7 @@
                                           <Font name="Arial Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="TXT_email" disable="true" layoutX="192.0" layoutY="122.0" prefHeight="25.0" prefWidth="148.0" promptText="Email usuário">
+                                    <TextField fx:id="TXT_email" layoutX="192.0" layoutY="122.0" prefHeight="25.0" prefWidth="148.0" promptText="Email usuário">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -113,7 +113,7 @@
                                           <Font name="Arial Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="TXT_cpf" disable="true" layoutX="26.0" layoutY="195.0" prefHeight="25.0" prefWidth="148.0" promptText="CPF usuário">
+                                    <TextField fx:id="TXT_cpf" layoutX="26.0" layoutY="195.0" prefHeight="25.0" prefWidth="148.0" promptText="CPF usuário">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -123,7 +123,7 @@
                                           <Font name="Arial Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="TXT_telefone" disable="true" layoutX="192.0" layoutY="195.0" prefHeight="25.0" prefWidth="148.0" promptText="Telefone usuário">
+                                    <TextField fx:id="TXT_telefone" layoutX="192.0" layoutY="195.0" prefHeight="25.0" prefWidth="148.0" promptText="Telefone usuário">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -133,7 +133,7 @@
                                           <Font name="Arial Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="TXT_nacionalidade" disable="true" layoutX="26.0" layoutY="275.0" prefHeight="25.0" prefWidth="148.0" promptText="Nacionalidade usuário">
+                                    <TextField fx:id="TXT_nacionalidade" layoutX="26.0" layoutY="275.0" prefHeight="25.0" prefWidth="148.0" promptText="Nacionalidade usuário">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -143,7 +143,7 @@
                                           <Font name="Arial Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="TXT_nacionalidade" disable="true" layoutX="192.0" layoutY="275.0" prefHeight="25.0" prefWidth="148.0">
+                                    <TextField fx:id="TXT_nacionalidade" layoutX="192.0" layoutY="275.0" prefHeight="25.0" prefWidth="148.0">
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
@@ -159,6 +159,14 @@
          </children>
       </Pane>
       <Button layoutX="612.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Usuários" textFill="#797878">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="BTN_cadastroCarros" layoutX="477.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickPostCar" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Cadastrar carros" textFill="#797878">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>

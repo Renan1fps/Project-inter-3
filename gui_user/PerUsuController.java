@@ -1,11 +1,14 @@
 package gui_user;
 
 import gui_ini.LoginController;
+import gui_ini.MenuController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import model.entities.User;
+import model.services.CarService;
+import model.services.UnitService;
 import model.services.UserService;
 import state.AuthState;
 import utils.Loader;
@@ -58,6 +61,15 @@ public class PerUsuController implements Initializable {
     public void handleClickServices() {
         loader.loadView("../gui_ini/servicos.fxml", (x -> {
         }));
+    }
+
+    @FXML
+    public void handleClickBack() {
+        loader.loadView("../gui_ini/tabelasCarros.fxml", (MenuController menuController) -> {
+            menuController.setCarService(new CarService());
+            menuController.setUnitService(new UnitService());
+            menuController.updateTableView(true);
+        });
     }
 
     public void setService(UserService userService) {

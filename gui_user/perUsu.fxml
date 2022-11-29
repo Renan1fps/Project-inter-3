@@ -131,7 +131,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="176.0" layoutY="544.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Cancelar" textFill="WHITE">
+            <Button layoutX="176.0" layoutY="544.0" mnemonicParsing="false" onAction="#handleClickBack" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Cancelar" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
