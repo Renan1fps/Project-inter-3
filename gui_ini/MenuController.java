@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 
 import gui_adm.ListUserController;
+import gui_cadastros.CadastroCarroController;
 import gui_user.LocarVeiController;
 import gui_user.PerUsuController;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -86,6 +87,9 @@ public class MenuController implements Initializable {
     @FXML
     private ChoiceBox<String> CbUnidades;
 
+    @FXML
+    private Button BTN_cadastroCarros;
+
     private ObservableList<Car> obsList;
 
     @FXML
@@ -98,6 +102,15 @@ public class MenuController implements Initializable {
     public void handleClickInit() {
         loader.loadView("/gui_ini/inicio.fxml", (x -> {
         }));
+    }
+
+    @FXML
+    public void handleClickPostCar() {
+        loader.loadView("../gui_cadastros/cadCar.fxml", (CadastroCarroController cadastroCarroController) -> {
+            cadastroCarroController.setService(new CarService(), new UnitService());
+            cadastroCarroController.updateView();
+
+        });
     }
 
     @FXML
@@ -263,6 +276,7 @@ public class MenuController implements Initializable {
     private void hiddenButtons() {
         if (!AuthState.isAuthenticated() || !AuthState.getUserLogged().isIs_adm()) {
             BTN_usuarios.setVisible(false);
+            BTN_cadastroCarros.setVisible(false);
         }
     }
 

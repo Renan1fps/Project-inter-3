@@ -12,7 +12,7 @@ public class CarService implements CarDao {
 
     @Override
     public void insert(Car obj) {
-
+        dao.insert(obj);
     }
 
     @Override

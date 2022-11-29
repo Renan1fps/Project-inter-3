@@ -3,6 +3,7 @@ package gui_user;
 import gui_adm.ListUserController;
 import gui_ini.LoginController;
 import gui_ini.MenuController;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -17,6 +18,7 @@ import model.services.UserService;
 import state.AuthState;
 import utils.Loader;
 
+import javax.imageio.ImageIO;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
@@ -72,6 +74,8 @@ public class AlugarCarroController implements Initializable {
             finalResult = valorFinal * 100;
         }
         return finalResult;
+
+
     }
 
     @FXML

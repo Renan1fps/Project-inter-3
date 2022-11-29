@@ -18,7 +18,7 @@
          <children>
             <ImageView fitHeight="159.0" fitWidth="274.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/logo_transparent_background.png" />
+                  <Image url="@../resources/logo_transparent_background.png" />
                </image>
             </ImageView>
             <Button layoutX="778.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickWhoWeAre" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Quem somos" textFill="#797878">
@@ -49,10 +49,7 @@
       </Pane>
       <Pane layoutX="5.0" layoutY="82.0" prefHeight="615.0" prefWidth="1014.0" style="-fx-background-color: #f2ecff;" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="82.0">
          <children>
-            <ImageView fitHeight="281.0" fitWidth="519.0" layoutX="29.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/lancer.jpg" />
-               </image></ImageView>
+            <ImageView fx:id="imageView" fitHeight="281.0" fitWidth="519.0" layoutX="29.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="408.0" layoutY="23.0" text="Dados do veículo">
                <font>
                   <Font name="Arial Bold" size="24.0" />

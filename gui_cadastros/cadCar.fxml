@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -17,26 +17,35 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="1024.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui_cadastros.CadastroCarroController">
    <children>
       <Pane layoutX="294.0" layoutY="195.0" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="688.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="159.0" fitWidth="274.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="80.0" fitWidth="282.0" preserveRatio="true">
                <image>
-                  <Image url="@../images/logo_transparent_background.png" />
-               </image>
-            </ImageView>
-            <Button layoutX="778.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Quem somos" textFill="#797878">
+                  <Image url="@../resources/logo_transparent_background.png" />
+               </image></ImageView>
+            <Button layoutX="789.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickWhoWeAre" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Quem somos" textFill="#797878">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Button>
-            <Button layoutX="707.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Inicio" textFill="#797878">
+            <Button layoutX="720.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickInit" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Início" textFill="#797878">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Button>
-            <Button layoutX="900.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Serviços" textFill="#797878">
+            <Button layoutX="900.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickServices" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Serviços" textFill="#797878">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="626.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickUser" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Usuários" textFill="#797878">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="480.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Cadastro veículos" textFill="#797878">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
@@ -45,7 +54,7 @@
       </Pane>
       <Pane layoutX="5.0" layoutY="80.0" prefHeight="615.0" prefWidth="1014.0" style="-fx-background-color: #f2ecff;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="80.0">
          <children>
-            <GridPane layoutX="62.0" layoutY="303.0" prefHeight="293.0" prefWidth="338.0">
+            <GridPane layoutX="54.0" layoutY="251.0" prefHeight="296.0" prefWidth="359.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="498.0" minWidth="10.0" prefWidth="498.0" />
                </columnConstraints>
@@ -62,19 +71,19 @@
                   <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField prefHeight="39.0" prefWidth="400.0" promptText="Nome do modelo" GridPane.rowIndex="1">
+                  <TextField fx:id="TXT_modelo" prefHeight="39.0" prefWidth="400.0" promptText="Nome do modelo" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font></TextField>
-                  <TextField prefHeight="39.0" prefWidth="400.0" promptText="Ano do veículo" GridPane.rowIndex="3">
+                  <TextField fx:id="TXT_ano" prefHeight="39.0" prefWidth="400.0" promptText="Ano do veículo" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font></TextField>
-                  <TextField prefHeight="39.0" prefWidth="400.0" promptText="Cor do veículo" GridPane.rowIndex="5">
+                  <TextField fx:id="TXT_cor" prefHeight="39.0" prefWidth="400.0" promptText="Cor do veículo" GridPane.rowIndex="5">
                      <font>
                         <Font size="18.0" />
                      </font></TextField>
-                  <TextField prefHeight="39.0" prefWidth="400.0" promptText="Placa do veículo" GridPane.rowIndex="7">
+                  <TextField fx:id="TXT_palaca" prefHeight="39.0" prefWidth="400.0" promptText="Placa do veículo" GridPane.rowIndex="7">
                      <font>
                         <Font size="18.0" />
                      </font></TextField>
@@ -103,45 +112,50 @@
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="39.0" prefWidth="400.0" promptText="Valor da Diária do veículo" GridPane.rowIndex="9">
+                  <TextField fx:id="TXT_valor" prefHeight="39.0" prefWidth="400.0" promptText="Valor da Diária do veículo" GridPane.rowIndex="9">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
                </children>
             </GridPane>
-            <Label layoutX="66.0" layoutY="130.0" text="Selecione uma foto para o cadastro do veículo:">
+            <Label layoutX="81.0" layoutY="102.0" text="Selecione uma foto para o cadastro do veículo:">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <ImageView fitHeight="135.0" fitWidth="243.0" layoutX="504.0" layoutY="73.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../../../../Downloads/download%20(1).jpg" />
-               </image>
-            </ImageView>
-            <Button layoutX="795.0" layoutY="121.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="182.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Inserir Imagem" textFill="WHITE">
-               <font>
-                  <Font name="Arial Bold" size="14.0" />
-               </font>
-               <padding>
-                  <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
-               </padding></Button>
-            <Button layoutX="743.0" layoutY="630.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="234.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Confirmar cadastro" textFill="WHITE">
+            <ImageView fx:id="imageView" fitHeight="129.0" fitWidth="234.0" layoutX="507.0" layoutY="38.0" pickOnBounds="true" />
+            <Button fx:id="BTN_choiceImage" layoutX="795.0" layoutY="92.0" mnemonicParsing="false" onAction="#pickImage" prefHeight="40.0" prefWidth="182.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Inserir Imagem" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
                <padding>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button layoutX="678.0" layoutY="554.0" mnemonicParsing="false" onAction="#handleCreateNewCar" prefHeight="40.0" prefWidth="234.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Confirmar cadastro" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button layoutX="62.0" layoutY="630.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Cancelar" textFill="WHITE">
+            <Button layoutX="158.0" layoutY="556.0" mnemonicParsing="false" onAction="#handleClickBack" prefHeight="24.0" prefWidth="152.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Cancelar" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
                <padding>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Separator layoutY="41.0" prefHeight="3.0" prefWidth="1014.0" />
             <Label layoutX="368.0" layoutY="7.0" text="Cadastro do Veículo">
@@ -149,7 +163,7 @@
                   <Font name="Arial" size="30.0" />
                </font>
             </Label>
-            <GridPane layoutX="561.0" layoutY="265.0" prefHeight="334.0" prefWidth="282.0">
+            <GridPane layoutX="548.0" layoutY="231.0" prefHeight="296.0" prefWidth="334.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -164,70 +178,63 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <CheckBox mnemonicParsing="false" text="Possui vidro elétrico">
+                  <CheckBox fx:id="CB_vidroEletrico" mnemonicParsing="false" prefHeight="18.0" prefWidth="167.0" text="Possui vidro elétrico">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="É um veículo com cãmbio automático" GridPane.rowIndex="1">
+                  <CheckBox fx:id="CB_cambioAutomatico" mnemonicParsing="false" text="É um veículo com cãmbio automático" GridPane.rowIndex="1">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="É um veículo premium?" GridPane.rowIndex="7">
+                  <CheckBox fx:id="CB_premium" mnemonicParsing="false" text="É um veículo premium?" GridPane.rowIndex="7">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Possui Ar-Condicionado" GridPane.rowIndex="2">
+                  <CheckBox fx:id="Cb_arcondicionado" mnemonicParsing="false" text="Possui Ar-Condicionado" GridPane.rowIndex="2">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Possui freio ABS" GridPane.rowIndex="3">
+                  <CheckBox fx:id="CB_freioABS" mnemonicParsing="false" text="Possui freio ABS" GridPane.rowIndex="3">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Possui quatro portas ou mais?" GridPane.rowIndex="4">
+                  <CheckBox fx:id="CB_quatroPortas" mnemonicParsing="false" text="Possui quatro portas ou mais?" GridPane.rowIndex="4">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Possui direção hidráulica" GridPane.rowIndex="5">
+                  <CheckBox fx:id="CB_direcaoHidraulica" mnemonicParsing="false" text="Possui direção hidráulica" GridPane.rowIndex="5">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Possui porta mala grande?" GridPane.rowIndex="6">
+                  <CheckBox fx:id="CB_portaMalaGrande" mnemonicParsing="false" text="Possui porta mala grande?" GridPane.rowIndex="6">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
                   </CheckBox>
                </children>
             </GridPane>
-            <Separator layoutY="220.0" prefHeight="3.0" prefWidth="1014.0" />
+            <Separator layoutY="180.0" prefHeight="3.0" prefWidth="1014.0" />
             <Separator layoutX="504.0" layoutY="221.0" orientation="VERTICAL" prefHeight="392.0" prefWidth="4.0" />
-            <Label layoutX="561.0" layoutY="234.0" text="Selecione os itens que o veículo possui:">
+            <Label layoutX="574.0" layoutY="194.0" text="Selecione os itens que o veículo possui:">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="62.0" layoutY="234.0" text="Digite os dados do veículo:">
+            <Label layoutX="54.0" layoutY="184.0" text="Digite os dados do veículo:">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
             <Separator layoutY="613.0" prefHeight="3.0" prefWidth="1014.0" />
-            <MenuButton layoutX="62.0" layoutY="265.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="338.0" text="Selecione a unidade que o veículo será armazenado">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
-               <font>
-                  <Font name="Arial Bold" size="12.0" />
-               </font>
-            </MenuButton>
+            <ChoiceBox fx:id="CbUnidades" layoutX="54.0" layoutY="214.0" prefHeight="25.0" prefWidth="171.0" />
+            <Label layoutX="157.0" layoutY="218.0" text="Unidade" />
          </children>
       </Pane>
    </children>

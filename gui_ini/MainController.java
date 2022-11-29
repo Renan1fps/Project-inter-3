@@ -5,10 +5,12 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import model.services.CarService;
 import model.services.UnitService;
+import utils.Alerts;
 import utils.Loader;
 
 public class MainController implements Initializable {
@@ -40,6 +42,10 @@ public class MainController implements Initializable {
             menuController.setUnitService(new UnitService());
             menuController.updateTableView(true);
         });
+    }
+
+    public void showMessage(String title, String header, String content, Alert.AlertType type){
+        Alerts.showAlert(title, header, content, type);
     }
 
     @FXML

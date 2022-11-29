@@ -15,7 +15,7 @@
          <children>
             <ImageView fitHeight="491.0" fitWidth="829.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
-                  <Image url="@../images/lancer.jpg" />
+                  <Image url="@../resources/assets/lancer.jpg" />
                </image>
             </ImageView>
          </children>
@@ -24,7 +24,7 @@
          <children>
             <ImageView fitHeight="491.0" fitWidth="829.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
-                  <Image url="@../images/m4.jpg" />
+                  <Image url="@../resources/m4.jpg" />
                </image>
             </ImageView>
          </children>
@@ -33,7 +33,7 @@
          <children>
             <ImageView fitHeight="491.0" fitWidth="829.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
-                  <Image url="@../images/supra.jpg" />
+                  <Image url="@../resources/supra.jpg" />
                </image>
             </ImageView>
          </children>

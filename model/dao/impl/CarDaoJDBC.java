@@ -24,7 +24,7 @@ public class CarDaoJDBC implements CarDao {
         try {
             st = conn.prepareStatement(
                     "INSERT INTO tb_car "
-                            + "(modelo, ano, cor, valor, vidro_eletrico, cambio_automatico, ar_condicionado, freio_abs, quatro_portas, direcao_hidraulica, porta_mala_grande, premium) "
+                            + "(modelo, ano, cor, valor, vidro_eletrico, cambio_automatico, ar_condicionado, freio_abs, quatro_portas, direcao_hidraulica, porta_mala_grande, premium, image_url) "
                             + "VALUES " + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 
             st.setString(1, obj.getModelo());
@@ -39,6 +39,7 @@ public class CarDaoJDBC implements CarDao {
             st.setBoolean(10, obj.getDirecaoHidrauliaca());
             st.setBoolean(11, obj.getPortaMalaGrande());
             st.setBoolean(12, obj.getPremium());
+            st.setString(13, obj.getImageUrl());
 
             int rowsAffected = st.executeUpdate();
 
@@ -233,6 +234,7 @@ public class CarDaoJDBC implements CarDao {
         obj.setDirecaoHidrauliaca(rs.getBoolean("direcao_hidraulica"));
         obj.setPortaMalaGrande(rs.getBoolean("porta_mala_grande"));
         obj.setPremium(rs.getBoolean("premium"));
+        obj.setImageUrl(rs.getString("image_url"));
         return obj;
     }
 }

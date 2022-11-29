@@ -8,6 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import model.entities.Car;
 import model.services.CarService;
 import model.services.LocationService;
@@ -77,6 +79,9 @@ public class LocarVeiController implements Initializable {
 
     @FXML
     private Button BTN_simulate;
+
+    @FXML
+    private ImageView imageView = new ImageView();
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -151,6 +156,18 @@ public class LocarVeiController implements Initializable {
     }
 
     private void setFieldsText(Car car) {
+
+        Image image = new Image(car.getImageUrl());
+        imageView.setImage(image);
+        imageView.setVisible(true);
+        imageView.setCache(true);
+        imageView.isVisible();
+        imageView.setX(10);
+        imageView.setY(10);
+        imageView.setFitWidth(575);
+        imageView.setPreserveRatio(true);
+        imageView.getImage();
+
         Txb_Modelo.setText(car.getModelo());
         Txb_ano.setText(String.valueOf(car.getAno()));
         Txb_cor.setText(car.getCor());

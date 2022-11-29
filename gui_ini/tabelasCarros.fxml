@@ -196,7 +196,7 @@
                <children>
                   <ImageView fitHeight="159.0" fitWidth="274.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/logo_transparent_background.png" />
+                        <Image url="@../resources/logo_transparent_background.png" />
                      </image>
                   </ImageView>
                   <Button layoutX="900.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickServices" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Serviços" textFill="#797878">
@@ -226,6 +226,14 @@
                </cursor>
             </Button>
             <Button layoutX="789.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleClickWhoWeAre" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Quem somos" textFill="#797878">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="BTN_cadastroCarros" layoutX="498.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleClickPostCar" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Cadastro carros" textFill="#797878">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>

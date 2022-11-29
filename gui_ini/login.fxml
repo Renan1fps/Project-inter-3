@@ -62,7 +62,7 @@
       </Pane>
       <ImageView fitHeight="117.0" fitWidth="365.0" layoutX="330.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/logo_transparent_background.png" />
+            <Image url="@../resources/logo_transparent_background.png" />
          </image>
       </ImageView>
    </children>

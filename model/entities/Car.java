@@ -23,6 +23,7 @@ public class Car implements Serializable {
     private boolean portaMalaGrande;
     private boolean premium;
     private Unit unit;
+    private String imageUrl;
 
     public Car() {
     }
@@ -44,6 +45,9 @@ public class Car implements Serializable {
         this.portaMalaGrande = portaMalaGrande;
         this.premium = premium;
         this.placa = placa;
+    }
+
+    public Car(int i, String modelo, int ano, String cor, String placa, int valor, boolean vidroEletrico, boolean cambioAutomatico, boolean arCondicionado, boolean freioABS, boolean quatroPortas, boolean direcaoHidraulica, boolean portaMalaGrande, boolean premium, String imageUrl) {
     }
 
     public int getId() {
@@ -166,17 +170,25 @@ public class Car implements Serializable {
         this.unit = unit;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return id == car.id && ano == car.ano && Double.compare(car.valor, valor) == 0 && vidroEletrico == car.vidroEletrico && cambioAutomatico == car.cambioAutomatico && arCondicionado == car.arCondicionado && freioAbs == car.freioAbs && quatroPortas == car.quatroPortas && direcaoHidrauliaca == car.direcaoHidrauliaca && portaMalaGrande == car.portaMalaGrande && premium == car.premium && Objects.equals(modelo, car.modelo) && Objects.equals(cor, car.cor) && Objects.equals(unit, car.unit);
+        return id == car.id && ano == car.ano && Double.compare(car.valor, valor) == 0 && vidroEletrico == car.vidroEletrico && cambioAutomatico == car.cambioAutomatico && arCondicionado == car.arCondicionado && freioAbs == car.freioAbs && quatroPortas == car.quatroPortas && direcaoHidrauliaca == car.direcaoHidrauliaca && portaMalaGrande == car.portaMalaGrande && premium == car.premium && Objects.equals(modelo, car.modelo) && Objects.equals(placa, car.placa) && Objects.equals(cor, car.cor) && Objects.equals(unit, car.unit) && Objects.equals(imageUrl, car.imageUrl);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, modelo, ano, cor, valor, vidroEletrico, cambioAutomatico, arCondicionado, freioAbs, quatroPortas, direcaoHidrauliaca, portaMalaGrande, premium, unit);
+        return Objects.hash(id, modelo, placa, ano, cor, valor, vidroEletrico, cambioAutomatico, arCondicionado, freioAbs, quatroPortas, direcaoHidrauliaca, portaMalaGrande, premium, unit, imageUrl);
     }
 
     @Override
@@ -184,6 +196,7 @@ public class Car implements Serializable {
         return "Car{" +
                 "id=" + id +
                 ", modelo='" + modelo + '\'' +
+                ", placa='" + placa + '\'' +
                 ", ano=" + ano +
                 ", cor='" + cor + '\'' +
                 ", valor=" + valor +
@@ -196,6 +209,7 @@ public class Car implements Serializable {
                 ", portaMalaGrande=" + portaMalaGrande +
                 ", premium=" + premium +
                 ", unit=" + unit +
+                ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
 }
