@@ -4,6 +4,8 @@ import database.DbException;
 import database.Provider;
 import model.dao.CarDao;
 import model.entities.Car;
+import model.entities.Unit;
+import model.entities.User;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -80,6 +82,7 @@ public class CarDaoJDBC implements CarDao {
                     " direcao_hidraulica = ?, \n" +
                     " porta_mala_grande = ?, \n" +
                     " premium = ? \n" +
+                    " placa = ?, \n" +
                     "WHERE id_car = ?;"
             );
 
@@ -95,7 +98,8 @@ public class CarDaoJDBC implements CarDao {
             st.setBoolean(10, obj.getDirecaoHidrauliaca());
             st.setBoolean(11, obj.getPortaMalaGrande());
             st.setBoolean(12, obj.getPremium());
-            st.setInt(13, obj.getId());
+            st.setString(13, obj.getPlaca());
+            st.setInt(14, obj.getId());
 
             st.executeUpdate();
 
@@ -129,8 +133,7 @@ public class CarDaoJDBC implements CarDao {
         ResultSet rs = null;
         try {
 
-            String query = "SELECT tc.* FROM tb_car tc inner join tb_unit tu ON tu.id_unit = tc.id_unit where tc.disponivel = 1";
-            //String query = "SELECT * FROM tb_car where disponivel = 1";
+            String query = "SELECT * FROM tb_car tc inner join tb_unit tu ON tu.id_unit = tc.id_unit where tc.disponivel = 1";
 
             if (obj.getVidroEletrico()) {
                 query += " and tc.vidro_eletrico = 1";
@@ -168,7 +171,6 @@ public class CarDaoJDBC implements CarDao {
                 query += " and tu.name = " + '"' + obj.getUnit().getName() + '"';
             }
 
-            System.out.println();
             st = conn.prepareStatement(query);
             rs = st.executeQuery();
 
@@ -193,7 +195,7 @@ public class CarDaoJDBC implements CarDao {
         PreparedStatement st = null;
         ResultSet rs = null;
         try {
-            st = conn.prepareStatement("SELECT * FROM tb_car where premium = ? ");
+            st = conn.prepareStatement("SELECT * FROM tb_car tc inner join tb_unit tu ON tu.id_unit = tc.id_unit  where tc.premium = ?");
 
             st.setBoolean(1, tipoBasico);
             rs = st.executeQuery();
@@ -214,12 +216,30 @@ public class CarDaoJDBC implements CarDao {
     }
 
     @Override
-    public List<Car> finOne() {
-        return null;
+    public Car finOne(int id) {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            st = conn.prepareStatement("SELECT * FROM tb_car tc inner join tb_unit tu ON tu.id_unit = tc.id_unit where tc.id_car = ?");
+
+            st.setInt(1, id);
+            rs = st.executeQuery();
+
+            if (rs.next()) {
+                return instantiateCar(rs);
+            }
+            return null;
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        } finally {
+            Provider.closeStatement(st);
+            Provider.closeResultSet(rs);
+        }
     }
 
     private Car instantiateCar(ResultSet rs) throws SQLException {
         Car obj = new Car();
+        Unit unit = new Unit();
         obj.setId(rs.getInt("id_car"));
         obj.setPlaca(rs.getString("placa"));
         obj.setModelo(rs.getString("modelo"));
@@ -235,6 +255,9 @@ public class CarDaoJDBC implements CarDao {
         obj.setPortaMalaGrande(rs.getBoolean("porta_mala_grande"));
         obj.setPremium(rs.getBoolean("premium"));
         obj.setImageUrl(rs.getString("image_url"));
+        unit.setName(rs.getString("name"));
+        unit.setId(rs.getInt("id_unit"));
+        obj.setUnit(unit);
         return obj;
     }
 }

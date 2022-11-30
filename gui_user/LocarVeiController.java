@@ -1,10 +1,10 @@
 package gui_user;
 
-
 import gui_adm.ListUserController;
 import gui_ini.MenuController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
@@ -78,9 +78,6 @@ public class LocarVeiController implements Initializable {
     private Button BTN_usuarios;
 
     @FXML
-    private Button BTN_simulate;
-
-    @FXML
     private ImageView imageView = new ImageView();
 
     @Override
@@ -144,10 +141,6 @@ public class LocarVeiController implements Initializable {
         this.idCar = car.getId();
         this.car = car;
 
-        if (AuthState.isAuthenticated() && AuthState.getUserLogged().isIs_adm()) {
-            BTN_simulate.setDisable(true);
-        }
-
         if (!AuthState.isAuthenticated() || !AuthState.getUserLogged().isIs_adm()) {
             this.disableFields();
         } else {
@@ -156,7 +149,6 @@ public class LocarVeiController implements Initializable {
     }
 
     private void setFieldsText(Car car) {
-
         Image image = new Image(car.getImageUrl());
         imageView.setImage(image);
         imageView.setVisible(true);
@@ -173,7 +165,7 @@ public class LocarVeiController implements Initializable {
         Txb_cor.setText(car.getCor());
         Txb_placa.setText(car.getPlaca());
         Txb_valor.setText(String.valueOf(car.getValor()));
-        //Txb_unidade.setText(car.getUnit().getName()); TODO
+        Txb_unidade.setText(car.getUnit().getName());
 
     }
 
@@ -220,7 +212,7 @@ public class LocarVeiController implements Initializable {
             menuController.setCarService(new CarService());
             menuController.setUnitService(new UnitService());
             menuController.updateTableView(true);
-            menuController.showSuccessMessage("Carro atualizado com sucesso", "Carro atualizado", "Atualização");
+            menuController.showMessage("Carro atualizado com sucesso", "Carro atualizado", "Atualização", Alert.AlertType.CONFIRMATION);
         });
     }
 

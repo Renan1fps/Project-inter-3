@@ -94,7 +94,7 @@ public class LocationDaoJDBC implements LocationDao {
         PreparedStatement st = null;
         ResultSet rs = null;
         try {
-            st = conn.prepareStatement("SELECT tb_location.*" + "WHERE tb_location.id_user = ?");
+            st = conn.prepareStatement("SELECT * FROM tb_location WHERE id_user = ?");
 
             st.setInt(1, idUser);
             rs = st.executeQuery();

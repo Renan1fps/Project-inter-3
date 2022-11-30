@@ -71,7 +71,7 @@ public class AlugarCarroController implements Initializable {
         double valorFinal = Double.parseDouble(TXT_quantidadeDias.getText());
         double finalResult = 0.0;
         if (valorFinal > 0) {
-            finalResult = valorFinal * 100;
+            finalResult = valorFinal * this.car.getValor();
         }
         return finalResult;
 
@@ -120,7 +120,7 @@ public class AlugarCarroController implements Initializable {
 
             dateReturn.setTime(new Date());
             dateReturn.add(Calendar.DATE, Integer.parseInt(TXT_quantidadeDias.getText()));
-            Double valorFinal = Double.parseDouble(TXT_quantidadeDias.getText()) * 100;
+            Double valorFinal = Double.parseDouble(TXT_quantidadeDias.getText()) * this.car.getValor();
 
             Date date = new Date(dateReturn.getTimeInMillis());
             Location location = new Location();
@@ -150,6 +150,7 @@ public class AlugarCarroController implements Initializable {
         Txb_ano.setText(String.valueOf(car.getAno()));
         Txb_placa.setText(car.getPlaca());
         Txb_cor.setText(car.getCor());
+        Txb_unidade.setText(car.getUnit().getName());
     }
 
     public void setCar(Car car) {

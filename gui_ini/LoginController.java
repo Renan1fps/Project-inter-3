@@ -38,7 +38,7 @@ public class LoginController implements Initializable {
     private void validateForm() throws Exception {
 
         if (TXT_email.getText() == null || TXT_email.getText().trim().equals("")) {
-            Alerts.showAlert("Email incorreto", "Email", "O campo de email n�o pode estar vazio", AlertType.WARNING);
+            Alerts.showAlert("Email incorreto", "Email", "O campo de email não pode estar vazio", AlertType.WARNING);
             throw new Exception();
         }
 
@@ -72,6 +72,7 @@ public class LoginController implements Initializable {
                 menuController.setCarService(new CarService());
                 menuController.setUnitService(new UnitService());
                 menuController.updateTableView(true);
+                menuController.showMessage("Bem-vindo novamente", "Bem-vindo", "", AlertType.CONFIRMATION);
             });
 
         } catch (Exception e) {
@@ -95,7 +96,7 @@ public class LoginController implements Initializable {
                 AlertType.CONFIRMATION);
     }
 
-    public void showMessage(String title, String header, String content, AlertType type){
+    public void showMessage(String title, String header, String content, AlertType type) {
         Alerts.showAlert(title, header, content, type);
     }
 

@@ -35,7 +35,7 @@ public class CarService implements CarDao {
     }
 
     @Override
-    public List<Car> finOne() {
-        return dao.finOne();
+    public Car finOne(int id) {
+        return dao.finOne(id);
     }
 }

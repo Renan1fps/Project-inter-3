@@ -49,7 +49,10 @@
       </Pane>
       <Pane layoutX="5.0" layoutY="82.0" prefHeight="615.0" prefWidth="1014.0" style="-fx-background-color: #f2ecff;" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="82.0">
          <children>
-            <ImageView fx:id="imageView" fitHeight="281.0" fitWidth="519.0" layoutX="29.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageView" fitHeight="281.0" fitWidth="519.0" layoutX="29.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Users/Renan/OneDrive/Imagens/localFacil/supra.jpg" />
+               </image></ImageView>
             <Label layoutX="408.0" layoutY="23.0" text="Dados do veículo">
                <font>
                   <Font name="Arial Bold" size="24.0" />
@@ -89,17 +92,17 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="Txb_placa" layoutX="808.0" layoutY="107.0" prefHeight="17.0" prefWidth="174.0" promptText="Palaca do veículo">
+            <TextField fx:id="Txb_placa" layoutX="808.0" layoutY="107.0" prefHeight="17.0" prefWidth="174.0" promptText="Placa do veículo">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <Label layoutX="808.0" layoutY="157.0" text="Valor alocação">
+            <Label layoutX="808.0" layoutY="157.0" text="Valor diária">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="Txb_valor" layoutX="808.0" layoutY="184.0" prefHeight="27.0" prefWidth="174.0" promptText="valor da alocação">
+            <TextField fx:id="Txb_valor" layoutX="808.0" layoutY="184.0" prefHeight="27.0" prefWidth="174.0" promptText="valor da diária">
                <font>
                   <Font size="18.0" />
                </font>
@@ -178,7 +181,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </CheckBox>
-            <Button fx:id="BTN_actionFinal" layoutX="665.0" layoutY="506.0" mnemonicParsing="false" onAction="#handleClickAction" prefHeight="58.0" prefWidth="206.0" style="-fx-background-color: #149cd4;" textFill="WHITE">
+            <Button fx:id="BTN_actionFinal" layoutX="279.0" layoutY="434.0" mnemonicParsing="false" onAction="#handleClickAction" prefHeight="58.0" prefWidth="206.0" style="-fx-background-color: #149cd4;" textFill="WHITE">
                <padding>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </padding>
@@ -189,7 +192,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="BTN_simulate" layoutX="327.0" layoutY="445.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="181.0" style="-fx-background-color: black;" text="Simluar alocação" textFill="WHITE">
+            <Button layoutX="79.0" layoutY="445.0" mnemonicParsing="false" onAction="#handleClickBack" prefHeight="35.0" prefWidth="154.0" style="-fx-background-color: black;" text="Voltar" textFill="WHITE">
                <padding>
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </padding>
@@ -202,17 +205,6 @@
             </Button>
          </children>
       </Pane>
-      <Button layoutX="74.0" layoutY="527.0" mnemonicParsing="false" onAction="#handleClickBack" prefHeight="35.0" prefWidth="154.0" style="-fx-background-color: black;" text="Voltar" textFill="WHITE">
-         <padding>
-            <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
-         </padding>
-         <font>
-            <Font name="Arial Bold" size="12.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <Button fx:id="BTN_usuarios" layoutX="617.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleClickUser" style="-fx-background-radius: 10; -fx-background-color: WHITE;" text="Usuários" textFill="#797878">
          <font>
             <Font name="Arial Bold" size="13.0" />

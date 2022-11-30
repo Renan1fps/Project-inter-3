@@ -159,7 +159,6 @@ public class CadastroCarroController implements Initializable {
         carCreate.setPremium(CB_premium.isSelected());
         carCreate.setQuatroPortas(CB_quatroPortas.isSelected());
         carCreate.setVidroEletrico(CB_vidroEletrico.isSelected());
-        System.out.println(carCreate);
         return carCreate;
     }
 

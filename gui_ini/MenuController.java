@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import gui_adm.ListUserController;
 import gui_cadastros.CadastroCarroController;
+import gui_user.LocaUsuController;
 import gui_user.LocarVeiController;
 import gui_user.PerUsuController;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -129,7 +130,7 @@ public class MenuController implements Initializable {
 
     @FXML
     public void handleClickUser() {
-        loader.loadView("../gui_adm/listUsu.fxml", (ListUserController listUserController)-> {
+        loader.loadView("../gui_adm/listUsu.fxml", (ListUserController listUserController) -> {
             listUserController.setCarService(new UserService());
             listUserController.updateTableView();
         });
@@ -243,8 +244,10 @@ public class MenuController implements Initializable {
                 loginController.setService(new UserService());
             });
         } else {
-            loader.loadView("../gui_user/LocaUsu.fxml", (x -> {
-            }));
+            loader.loadView("../gui_user/LocaUsu.fxml", (LocaUsuController locaUsuController)-> {
+                locaUsuController.setService(new LocationService(), new CarService());
+                locaUsuController.updateTableView();
+            });
         }
     }
 
@@ -280,8 +283,7 @@ public class MenuController implements Initializable {
         }
     }
 
-    public void showSuccessMessage(String message, String title, String action){
-        Alerts.showAlert(title, action, message,
-                Alert.AlertType.CONFIRMATION);
+    public void showMessage(String message, String title, String action, Alert.AlertType alert) {
+        Alerts.showAlert(title, action, message, alert);
     }
 }

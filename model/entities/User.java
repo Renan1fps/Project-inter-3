@@ -14,6 +14,7 @@ public class User implements Serializable {
 	private String passowrd;
 	private String cpf;
 	private Boolean is_adm;
+	private String imageUrl;
 
 	public User() {
 	}
@@ -27,6 +28,26 @@ public class User implements Serializable {
 		this.passowrd = passowrd;
 		this.cpf = cpf;
 		this.is_adm = is_adm;
+	}
+
+	public User(Integer id, String phone, String name, String email, String nacionalidade, String passowrd, String cpf, Boolean is_adm, String imageUrl) {
+		this.id = id;
+		this.phone = phone;
+		this.name = name;
+		this.email = email;
+		this.nacionalidade = nacionalidade;
+		this.passowrd = passowrd;
+		this.cpf = cpf;
+		this.is_adm = is_adm;
+		this.imageUrl = imageUrl;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	public Integer getId() {

@@ -106,13 +106,13 @@
                   </Label>
                </children>
             </GridPane>
-            <Label layoutX="62.0" layoutY="130.0" text="Imagem de perfil:">
+            <Label layoutX="184.0" layoutY="119.0" text="Imagem de perfil:">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <ImageView fitHeight="127.0" fitWidth="190.0" layoutX="504.0" layoutY="55.0" pickOnBounds="true" />
-            <Button layoutX="795.0" layoutY="120.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="182.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Inserir Imagem" textFill="WHITE">
+            <ImageView fx:id="imageView" fitHeight="127.0" fitWidth="190.0" layoutX="412.0" layoutY="57.0" pickOnBounds="true" />
+            <Button layoutX="710.0" layoutY="119.0" mnemonicParsing="false" onAction="#pickImage" prefHeight="40.0" prefWidth="182.0" style="-fx-background-color: black; -fx-background-radius: 10;" text="Inserir Imagem" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
@@ -120,7 +120,7 @@
                   <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
                </padding>
             </Button>
-            <Button layoutX="684.0" layoutY="544.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="234.0" style="-fx-background-color: #149cd4; -fx-background-radius: 10;" text="Confirmar Ajustes" textFill="WHITE">
+            <Button layoutX="684.0" layoutY="544.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="40.0" prefWidth="234.0" style="-fx-background-color: #149cd4; -fx-background-radius: 10;" text="Confirmar Ajustes" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
@@ -176,14 +176,14 @@
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor></TextField>
-                  <TextField prefHeight="39.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="3">
+                  <TextField fx:id="senhaUser" prefHeight="39.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor></TextField>
-                  <TextField prefHeight="39.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="5">
+                  <TextField fx:id="confirmacaoSenha" prefHeight="39.0" prefWidth="400.0" promptText="dados" GridPane.rowIndex="5">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -200,7 +200,7 @@
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Confirma Senha" GridPane.rowIndex="4">
+                  <Label text="Confirmar Senha" GridPane.rowIndex="4">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
